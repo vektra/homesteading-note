@@ -1,0 +1,19 @@
+<article class="hentry status">
+  <header>
+    <h1 class="entry-title entry-content">
+      <%= status.content %>
+    </h1>
+  </header>
+
+  <footer>
+    <%= link_to status, :rel => "bookmark" do %>
+      <time datetime="<%= status.updated_at.strftime("%Y-%H-%MT%H:%M") %>" pubdate class="published updated">
+        <%= Time.now.strftime("%B %d, %Y") %>
+        <span class="little-word">at</span>
+        <%= Time.now.strftime("%I:%M") %>
+      </time>
+    <% end %>
+
+    <%= link_to 'Destroy', status, :confirm => 'Are you sure?', :method => :delete, :class => "delete" %>
+  </footer>
+</article>

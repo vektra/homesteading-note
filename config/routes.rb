@@ -1,4 +1,8 @@
 HomesteadingStatus::Application.routes.draw do
+  resources :statuses, :except => [:update]
+
+
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
 
