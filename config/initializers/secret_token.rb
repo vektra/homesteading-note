@@ -1,1 +1,0 @@
-HomesteadingStatus::Application.config.secret_token = '25bc5b25114cd506ee70deeee48ba85581dec70e194ed1df3f716dc7f3cf6d5c40cce37070b1026f3a0e96978f4c02b34a9b8b72b5cb275fdb6a6d5f732ca080'
