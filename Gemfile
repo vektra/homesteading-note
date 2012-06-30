@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.6'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -38,14 +38,16 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug'
 
-gem "rspec-rails", :group => [:development, :test]
-gem "guard-rspec", :group => [:development, :test]
-gem "spork", "> 0.9.0.rc", :group => [:development, :test]
-gem "guard-spork", :group => [:development, :test]
-gem "factory_girl_rails", :group => [:development, :test]
-gem "capybara", :group => [:development, :test]
-gem "vcr", :group => [:development, :test]
-gem "fakeweb", :group => [:development, :test]
-gem "capybara-mechanize", :group => [:development, :test]
-gem "growl", :group => [:development, :test]
-gem "launchy", :group => [:development, :test]
+group :test, :development do
+  gem "rspec-rails"
+  gem "guard-rspec"
+  gem "spork", "> 0.9.0.rc"
+  gem "guard-spork"
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "vcr"
+  gem "fakeweb"
+  gem "capybara-mechanize"
+  gem "growl"
+  gem "launchy"
+end
