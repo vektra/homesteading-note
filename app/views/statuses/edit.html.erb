@@ -1,6 +1,8 @@
-<h1>Editing Status</h1>
+<article>
+  <h1>Editing <%= link_to "Status", @status %></h1>
 
-<%= render 'form' %>
+  <%= render "form" %>
 
-<%= link_to 'Show', @status %> |
-<%= link_to 'Back', statuses_path %>
+  <%= render partial: "admin_nav",
+             locals: { status: @status } %>
+</article>

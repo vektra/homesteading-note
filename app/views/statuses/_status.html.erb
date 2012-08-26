@@ -26,15 +26,8 @@
     <% end %>
 
 
-    <% if logged_in? %>
-      <section class="admin">
-        <ul>
-          <li class="new"><%= link_to 'New Status', new_status_path %></li>
-          <li class="edit"><%= link_to 'Edit',       edit_status_path(status) %></li>
-          <li class="delete"><%= link_to 'Destroy',    status, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-        </ul>
-      </section>
-    <% end %>
+    <%= render partial: "admin_nav",
+               locals: { status: status } %>
 
   <% if action_name == "index" %></li><% end %>
 <% end %>

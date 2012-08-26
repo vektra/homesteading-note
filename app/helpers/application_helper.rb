@@ -13,6 +13,6 @@ module ApplicationHelper
 
   def logged_in?
     true
-    false
+    # false
   end
 end
