@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe "statuses/new" do
   before(:each) do
