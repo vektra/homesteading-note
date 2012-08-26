@@ -1,0 +1,12 @@
+<a href="<%= status_path(status) %>" rel="bookmark" class="verb">Published</a>
+
+<time pubdate class="published">
+  <%= small_word_tag "on" %>
+  <%= human_readable_date(status.created_at) %>
+  
+  <%= small_word_tag "at" %>
+  <%= human_readable_time(status.created_at) %>
+</time>
+
+<%= small_word_tag "by" %>
+<%= render partial: "/shared/author" %>
