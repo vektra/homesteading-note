@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Homesteading Status</title>
+  <title>Homesteading Note</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -12,8 +12,8 @@
     <nav role="navigation">
       <ul>
         <li><a href="<%= CONFIG_HUB_URL %>" rel="home">Home</a></li>
-        <li><a href="<%= statuses_path %>">Statuses</a></li>
-        <li><a href="<%= new_status_path %>">NEW</a></li>
+        <li><a href="<%= notes_path %>">Notes</a></li>
+        <li><a href="<%= new_note_path %>">NEW</a></li>
       </ul>
     </nav>
   </header>

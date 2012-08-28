@@ -1,6 +1,6 @@
-class CreateStatuses < ActiveRecord::Migration
+class CreateNotes < ActiveRecord::Migration
   def change
-    create_table :statuses do |t|
+    create_table :notes do |t|
       t.text    :content
       t.text    :in_reply_to
       t.boolean :private

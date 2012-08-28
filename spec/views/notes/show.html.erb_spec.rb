@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe "statuses/show" do
+describe "notes/show" do
   before(:each) do
-    @status = assign(:status, stub_model(Status,
+    @note = assign(:note, stub_model(Note,
       :content => "MyText",
       :in_reply_to => "MyText",
       :private => false

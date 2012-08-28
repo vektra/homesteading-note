@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-HomesteadingStatus::Application.load_tasks
+HomesteadingNote::Application.load_tasks

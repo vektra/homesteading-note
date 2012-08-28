@@ -1,8 +1,0 @@
-<% if logged_in? && action_name != "new" %>
-  <section class="admin">
-    <ul>
-      <li class="edit">  <%= link_to_unless_current "Edit",    edit_status_path(status) %></li>
-      <li class="delete"><%= link_to "Destroy", status, method: :delete, data: { confirm: "Are you sure?" } %></li>
-    </ul>
-  </section>
-<% end %>

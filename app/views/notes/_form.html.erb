@@ -1,11 +1,11 @@
-<%= form_for(@status) do |f| %>
+<%= form_for(@note) do |f| %>
 
-  <% if @status.errors.any? %>
+  <% if @note.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@status.errors.count, "error") %> prohibited this status from being saved:</h2>
+      <h2><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h2>
 
       <ul>
-        <% @status.errors.full_messages.each do |msg| %>
+        <% @note.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
@@ -13,7 +13,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :content, "Status Content (REQUIRED)" %>
+    <%= f.label :content, "Note Content (REQUIRED)" %>
     <%= f.text_area :content %>
   </div>
 
@@ -23,12 +23,12 @@
   </div>
 
   <div class="field checkbox">
-    <%= f.label :private, "Private Status?" %>
+    <%= f.label :private, "Private Note?" %>
     <%= f.check_box :private %>
   </div>
 
   <div class="actions">
-    <%= link_to "Cancel", statuses_path %>
+    <%= link_to "Cancel", notes_path %>
     <%= f.submit %>
   </div>
 <% end %>

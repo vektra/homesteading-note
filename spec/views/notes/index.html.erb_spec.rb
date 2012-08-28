@@ -1,14 +1,14 @@
 require "spec_helper"
 
-describe "statuses/index" do
+describe "notes/index" do
   before(:each) do
-    assign(:statuses, [
-      stub_model(Status,
+    assign(:notes, [
+      stub_model(Note,
         :content => "MyText",
         :in_reply_to => "MyText",
         :private => false
       ),
-      stub_model(Status,
+      stub_model(Note,
         :content => "MyText",
         :in_reply_to => "MyText",
         :private => false
@@ -16,7 +16,7 @@ describe "statuses/index" do
     ])
   end
 
-  it "renders a list of statuses" do
+  it "renders a list of notes" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => "MyText".to_s, :count => 2

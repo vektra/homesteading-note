@@ -1,4 +1,4 @@
-class Status < ActiveRecord::Base
+class Note < ActiveRecord::Base
   attr_accessible :content, :in_reply_to, :private
   validates :content, :presence => true
 

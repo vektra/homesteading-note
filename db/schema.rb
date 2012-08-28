@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20120630231541) do
 
-  create_table "statuses", :force => true do |t|
+  create_table "notes", :force => true do |t|
     t.text     "content"
     t.text     "in_reply_to"
     t.boolean  "private"

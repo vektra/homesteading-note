@@ -1,25 +1,25 @@
-<% if status.public? || logged_in? %>
+<% if note.public? || logged_in? %>
   <% if action_name == "index" %><li><% end %>
 
-    <article class="h-entry hentry status">
+    <article class="h-entry hentry note">
       <div class="p-entry-title e-entry-content entry-content entry-title">
         <p>
-          <%= status.content %>
+          <%= note.content %>
         </p>
       </div>
 
       <footer>
         <%= render partial: "/shared/published_meta",
-                   locals: { status: status } %>
+                   locals: { note: note } %>
       </footer>
     </article>
 
-    <% unless status.in_reply_to.blank? %>
+    <% unless note.in_reply_to.blank? %>
       <div>
         <p class="in-reply-to">
           <b>In reply to:</b>
-          <a href="<%= status.in_reply_to %>" rel="prev external">
-            <%= status.in_reply_to %>
+          <a href="<%= note.in_reply_to %>" rel="prev external">
+            <%= note.in_reply_to %>
           </a>
         </p>
       </div>
@@ -27,7 +27,7 @@
 
 
     <%= render partial: "admin_nav",
-               locals: { status: status } %>
+               locals: { note: note } %>
 
   <% if action_name == "index" %></li><% end %>
 <% end %>
