@@ -56,7 +56,7 @@ GEM
     domain_name (0.5.3)
       unf (~> 0.0.3)
     erubis (2.7.0)
-    excon (0.16.1)
+    excon (0.16.2)
     execjs (1.4.0)
       multi_json (~> 1.0)
     factory_girl (3.4.2)
@@ -81,7 +81,7 @@ GEM
       spork (>= 0.8.4)
     gx (1.3.3)
       grit (~> 2.4)
-    heroku (2.30.3)
+    heroku (2.30.5)
       heroku-api (~> 0.3.4)
       launchy (>= 0.3.2)
       netrc (~> 0.7.7)
@@ -116,20 +116,17 @@ GEM
       nokogiri (~> 1.4)
       ntlm-http (~> 0.1, >= 0.1.1)
       webrobots (~> 0.0, >= 0.0.9)
-    metaclass (0.0.1)
     mime-types (1.19)
-    mocha (0.12.3)
-      metaclass (~> 0.0.1)
     multi_json (1.3.6)
     net-http-digest_auth (1.2.1)
     net-http-persistent (2.7)
     netrc (0.7.7)
     nokogiri (1.5.5)
     ntlm-http (0.1.1)
-    nyan-cat-formatter (0.0.8.1)
+    nyan-cat-formatter (0.0.9)
     polyglot (0.3.3)
     posix-spawn (0.3.6)
-    puma (1.6.1)
+    puma (1.6.2)
       rack (~> 1.2)
     rack (1.4.1)
     rack-cache (1.2)
@@ -228,7 +225,6 @@ DEPENDENCIES
   jquery-rails
   json
   launchy
-  mocha
   nyan-cat-formatter
   puma
   rails (~> 3.2.8)

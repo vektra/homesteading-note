@@ -32,7 +32,6 @@ group :test, :development do
   gem "guard-rspec"
   gem "guard-spork"
   gem "launchy"
-  gem "mocha"
   gem "nyan-cat-formatter"
   gem "simplecov", :require => false
   gem "spork",              "> 0.9.0.rc"
