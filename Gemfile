@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails",       "~> 3.2.8"
+gem "rails",       "~> 3.2.9"
 gem "bcrypt-ruby", "~> 3.0.1"
 gem "jquery-rails"
 gem "sqlite3"
@@ -16,7 +16,7 @@ end
 
 group :assets do
   gem "sass-rails",   "~> 3.2.5"
-  gem "uglifier",     "~> 1.2.7"
+  gem "uglifier",     "~> 1.3.0"
 end
 
 gem "jquery-rails"
@@ -33,6 +33,6 @@ group :test, :development do
   gem "launchy"
   gem "nyan-cat-formatter"
   gem "simplecov", :require => false
-  gem "spork",              "> 0.9.0.rc"
+  gem "spork",              "~> 0.9.2"
   gem "vcr"
 end
