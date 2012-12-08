@@ -2,7 +2,7 @@
   <% if action_name == "index" %><li><% end %>
 
     <article class="h-entry hentry note">
-      <div class="p-entry-title e-entry-content entry-content entry-title">
+      <div class="p-name e-content entry-content entry-title">
         <p>
           <%= note.content %>
         </p>
@@ -15,17 +15,16 @@
     </article>
 
     <% unless note.in_reply_to.blank? %>
-      <div>
-        <p class="in-reply-to">
+      <aside class="previous-in-thread">
+        <p>
           <b>In reply to:</b>
-          <a href="<%= note.in_reply_to %>" rel="prev external">
+          <a href="<%= note.in_reply_to %>" rel="prev external" class="in-reply-to">
             <%= note.in_reply_to %>
           </a>
         </p>
-      </div>
+      </aside>
     <% end %>
-
-
+    
     <%= render partial: "admin_nav",
                locals: { note: note } %>
 
