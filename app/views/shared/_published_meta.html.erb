@@ -1,9 +1,9 @@
-<a href="<%= note_path(note) %>" rel="bookmark" class="verb">Published</a>
+<a href="<%= note_path(note) %>" rel="bookmark" class="as-verb as-verb-published">Published</a>
 
 <time pubdate class="published">
   <%= small_word_tag "on" %>
   <%= human_readable_date(note.created_at) %>
-  
+
   <%= small_word_tag "at" %>
   <%= human_readable_time(note.created_at) %>
 </time>
