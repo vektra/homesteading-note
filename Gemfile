@@ -3,12 +3,10 @@ source "https://rubygems.org"
 gem "rails",       "~> 3.2.9"
 gem "bcrypt-ruby", "~> 3.0.1"
 gem "jquery-rails"
-gem "sqlite3"
 gem "json"
 gem "puma"
 
 group :development do
-  gem "sqlite3"
   gem "heroku"
   gem "taps"
   gem "gx"
@@ -19,9 +17,8 @@ group :assets do
   gem "uglifier",     "~> 1.3.0"
 end
 
-gem "jquery-rails"
-
 group :test, :development do
+  gem "sqlite3"
   gem "capybara"
   gem "capybara-mechanize"
   gem "database_cleaner"
