@@ -1,7 +1,7 @@
 <% if note.public? || logged_in? %>
   <% if action_name == "index" %><li><% end %>
 
-    <article class="h-entry hentry as-object as-note">
+    <article id="note_<%= note.id %>" class="h-entry hentry as-object as-note">
       <div class="p-name e-content entry-content entry-title">
         <p>
           <%= note.content %>
