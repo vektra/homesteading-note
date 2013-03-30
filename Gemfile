@@ -5,9 +5,9 @@ gem "bcrypt-ruby", "~> 3.0.1"
 gem "jquery-rails"
 gem "json"
 gem "puma"
+gem "quiet_assets"
 
 group :development do
-  gem "heroku"
   gem "taps"
   gem "gx"
 end
@@ -19,17 +19,15 @@ end
 
 group :test, :development do
   gem "sqlite3"
-  gem "capybara"
-  gem "capybara-mechanize"
-  gem "database_cleaner"
-  gem "factory_girl_rails", "~> 3.4.0"
-  gem "fakeweb"
-  gem "growl"
+  gem "rails-default-database"
+  gem "rspec-rails"
+  gem "fabrication"
   gem "guard-rspec"
   gem "guard-spork"
-  gem "launchy"
-  gem "nyan-cat-formatter"
+  gem "rb-fsevent"
   gem "simplecov", :require => false
-  gem "spork",              "~> 0.9.2"
-  gem "vcr"
+end
+
+group :production do
+  gem "pg"
 end
