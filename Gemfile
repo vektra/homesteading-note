@@ -6,7 +6,7 @@ gem "rails",       "~> 3.2.9"
 gem "bcrypt-ruby", "~> 3.0.1"
 gem "jquery-rails"
 gem "json"
-gem "puma"
+gem "puma",        "~> 2.0.0.b7"
 gem "quiet_assets"
 
 group :development do
