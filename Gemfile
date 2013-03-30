@@ -5,7 +5,7 @@ ruby "1.9.3"
 # homesteading shared stuff
 gem "homesteading-tasks"
 
-gem "rails",       "~> 3.2.9"
+gem "rails",       "~> 3.2.13"
 gem "bcrypt-ruby", "~> 3.0.1"
 gem "jquery-rails"
 gem "json"

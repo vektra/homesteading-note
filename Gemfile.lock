@@ -61,7 +61,7 @@ GEM
     gx (1.3.3)
       grit (~> 2.4)
     hike (1.2.1)
-    homesteading-tasks (0.0.1)
+    homesteading-tasks (0.0.2)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.2.1)
@@ -158,7 +158,7 @@ GEM
       rest-client (>= 1.4.0, < 1.7.0)
       sequel (~> 3.20.0)
       sinatra (~> 1.0.0)
-    thor (0.18.0)
+    thor (0.18.1)
     tilt (1.3.6)
     treetop (1.4.12)
       polyglot
@@ -183,7 +183,7 @@ DEPENDENCIES
   pg
   puma (~> 2.0.0.b7)
   quiet_assets
-  rails (~> 3.2.9)
+  rails (~> 3.2.13)
   rails-default-database
   rb-fsevent
   rspec-rails
