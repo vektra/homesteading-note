@@ -68,7 +68,7 @@ class NotesController < ApplicationController
     @note.destroy
 
     respond_to do |format|
-      format.html { redirect_to notes_url }
+      format.html { redirect_to notes_path }
       format.json { head :no_content }
     end
   end
