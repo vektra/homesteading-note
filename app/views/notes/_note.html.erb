@@ -2,7 +2,7 @@
   <% if action_name == "index" %><li><% end %>
 
     <article id="note_<%= note.id %>" class="h-entry hentry as-object as-note">
-      <div class="p-name e-content entry-content entry-title">
+      <div class="p-name e-content entry-title entry-content">
         <p>
           <%= note.content %>
         </p>
@@ -10,7 +10,7 @@
 
       <footer>
         <%= render partial: "/shared/published_meta",
-                   locals: { note: note } %>
+                   locals:  { note: note } %>
       </footer>
     </article>
 
@@ -26,7 +26,7 @@
     <% end %>
 
     <%= render partial: "admin_nav",
-               locals: { note: note } %>
+               locals:  { note: note } %>
 
   <% if action_name == "index" %></li><% end %>
 <% end %>
