@@ -1,0 +1,12 @@
+<% unless flash[:notice].blank? %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<table>
+  <% @settings.each do |setting| %>
+    <tr>
+      <th><%= link_to setting.name, edit_setting_path(setting) %></th>
+      <td><%= setting.content %></td>
+    </tr>
+  <% end %>
+</table>

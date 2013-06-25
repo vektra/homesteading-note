@@ -20,8 +20,8 @@ article,
 nav[role="navigation"] {
   font-weight: bold;
 
-  li            { display: inline; }
-  li:last-child { float: right; }
+  li           { display: inline; }
+  li.admin-nav { float: right; margin-left: .33em; }
 }
 
 /* admin */
@@ -31,7 +31,7 @@ nav[role="navigation"] {
   background: pink;
   opacity: .25;
 
-  li { display: inline; }
+  li      { display: inline; }
   .delete { float: right; }
 }
 

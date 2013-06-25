@@ -8,14 +8,18 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
 
   <header>
     <nav role="navigation">
       <ul>
-        <li><a href="<%= CONFIG_HUB_URL %>" rel="home">Home</a></li>
+        <li><a href="<%= setting :hub_url %>" rel="home">Home</a></li>
         <li><a href="<%= notes_path %>">Notes</a></li>
-        <li><a href="<%= new_note_path %>">NEW</a></li>
+        <% if logged_in? %>
+          <li class="admin-nav"><a href="<%= settings_path %>">Settings</a></li>
+          <li class="admin-nav"><a href="<%= new_note_path %>">New Note</a></li>
+        <% end %>
       </ul>
     </nav>
   </header>

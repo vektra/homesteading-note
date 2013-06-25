@@ -1,0 +1,52 @@
+/* flash messages... */
+.notice {
+  padding: 1em 1em .5em 1em;
+  margin-bottom: 1em;
+  background: yellow;
+}
+
+#error_explanation {
+  background: red;
+  padding: 1em;
+  margin-bottom: 1em;
+  color: white;
+  font-size: 1.1em;
+  line-height: 150%;
+  
+  li {
+    font-weight: bold;
+  }
+}
+/* ...flash messages */
+
+/* all of the settings... */
+table  { width: 100%; }
+th, td { padding: .5em; }
+
+th {
+  text-align: left;
+  font-weight: bold;
+  padding-right: 1em;
+}
+
+tr                 { background: #eee; }
+tr:nth-child(even) { background: #ddd; }
+/* ...all of the settings */
+
+/* settings form... */
+label {
+  font-weight: bold;
+  margin: 0;
+}
+
+input {
+  display: block;
+  width: 90%;
+  margin-bottom: 1em;
+}
+
+button {
+  display: block;
+  margin-bottom: 1em;
+}
+/* ...settings form */

@@ -1,0 +1,27 @@
+<h1><%= link_to "Settings", settings_path %></h1>
+
+<article>
+  <%= form_for(@setting) do |f| %>
+    <% if @setting.errors.any? %>
+      <div id="error_explanation">
+        <p><%= pluralize(@setting.errors.count, "error") %> prohibited this setting from being saved:</p>
+
+        <ul>
+          <% @setting.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+
+    <%= f.button %>
+  <% end %>
+
+  <%= render partial: "settings" %>
+</article>
