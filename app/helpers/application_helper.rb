@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def read_action?
+    action_name =~ /show|index/
+  end
+
+  def editing?
+    action_name == "edit"
+  end
+
   def human_readable_date(datetime)
     datetime.strftime("%F")
   end
@@ -14,5 +22,33 @@ module ApplicationHelper
   def logged_in?
     true
     # false
+  end
+
+  def autofocus_value
+    !editing?
+  end
+
+  def post_type
+    setting(:post_type)
+  end
+
+  def site_title
+    title = ""
+
+    if setting(:site_title).blank?
+      title << post_type.capitalize.pluralize
+    else
+      title << setting(:site_title)
+    end
+
+    if @page_title
+      title << " &mdash; #{@page_title}"
+    end
+
+    title.html_safe
+  end
+
+  def setting(key)
+    Setting.where(key: key).first.content
   end
 end

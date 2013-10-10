@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en-US">
+<html dir="ltr" lang="en-US" id="<%= controller_name %>" class="<%= action_name %>">
 
 <head>
   <meta charset="utf-8">
-  <title>Homesteading Note</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <title><%= site_title %></title>
+  <meta name="viewport" content="width=device-width" />
+  <meta name="viewport" content="user-scalable=no"   />
+
+  <%= stylesheet_link_tag "application", :media => "all"      %>
+  <%= javascript_include_tag(read_action? ? "read" : "write") %>
   <%= csrf_meta_tags %>
 </head>
 
@@ -14,13 +17,16 @@
   <header>
     <nav role="navigation">
       <ul>
-        <li><a href="<%= setting :hub_url %>" rel="home">Home</a></li>
-        <li><a href="<%= notes_path %>">Notes</a></li>
-        <% if logged_in? %>
-          <li class="admin-nav"><a href="<%= settings_path %>">Settings</a></li>
-          <li class="admin-nav"><a href="<%= new_note_path %>">New Note</a></li>
-        <% end %>
+        <li><%= link_to "Home", setting(:hub_url), rel: "home"   %></li>
+        <li><%= link_to post_type.capitalize.pluralize, root_url %></li>
       </ul>
+
+      <% if logged_in? %>
+        <ul class="admin">
+          <li>   <%= link_to_unless_current "Settings",                settings_url                 %>    </li>
+          <li><b><%= link_to_unless_current "NEW&nbsp;POST".html_safe, send("new_#{post_type}_url") %></b></li>
+        </ul>
+      <% end %>
     </nav>
   </header>
 

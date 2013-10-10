@@ -1,0 +1,278 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+fieldset,
+input[type=text],
+input[type=url],
+input[type=email],
+input[type=number],
+input[type=datetime],
+textarea,
+button {
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+}
+
+body,
+fieldset,
+input[type=text],
+input[type=url],
+input[type=email],
+input[type=number],
+input[type=datetime],
+textarea {
+  width: 100%;
+}
+
+form h4 a {
+  font-weight: normal;
+}
+
+.screen-reader-only {
+  display: none !important;
+}
+
+:focus {
+  outline: none;
+}
+
+textarea {
+  display: block;
+}
+
+input {
+  display: inline-block;
+}
+
+input,
+textarea,
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+.pagination,
+.h-entry {
+  margin: 3em auto 5em auto;
+  width: 80%;
+  padding: 0;
+}
+
+.p-hs-title {
+  font-size: 2em;
+  font-weight: bold;
+  display: block;
+}
+
+.p-hs-subtitle {
+  font-size: 1.5em;
+  display: block;
+  font-weight: normal;
+}
+
+.content-container {
+  position: relative;
+}
+
+.content-container + fieldset {
+  clear: both;
+  margin-top: 1em;
+}
+
+.content-container .e-content {
+  height: 10em;
+  margin-top: .5em;
+}
+
+.e-content {
+  font-family: georgia, times, serif;
+  font-size: 1em;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "helvetica neue", helvetica, arial, sans-serif;
+  }
+}
+
+
+.p-hs-content-count {
+  background: white;
+  background: rgba(255, 255, 255, .9);
+  font-weight: normal;
+  color: #a9a9a9;
+  display: block;
+  height: 1em;
+  margin-top: -2em;
+  padding: .5em;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  font-size: .8em;
+}
+
+.p-hs-content-count.over {
+  font-weight: bold;
+  color: #666;
+}
+
+.actions {
+  margin: 2em 0 3em 0;
+  padding-bottom: 3em;
+  border-bottom: 1px solid #eee;
+}
+
+.action {
+  color: #333;
+  text-transform: uppercase;
+  float: left;
+  text-decoration: none;
+  border-bottom: 1px solid #333;
+}
+
+.action-delete {
+  color: red;
+  text-transform: uppercase;
+  float: left;
+  text-decoration: none;
+  border-bottom: 1px solid red;
+  margin-right: 1em;
+}
+
+.action-save {
+  background: green;
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  color: white;
+  text-align: right;
+  float: right;
+}
+
+.action        { padding: .4em 0;     }
+.action-delete { padding: .4em 0;     }
+.action-save   { padding: .4em .66em; }
+
+.actions .dt-updated {
+  color: #ccc;
+  display: block;
+  text-align: right;
+  clear: both;
+  font-size: .8em;
+}
+
+.p-location input,
+.meta input {
+  display: block;
+  margin: 0;
+  padding: .5em 0;
+  font-size: .8em;
+  width: 100%;
+}
+
+.meta .tags,
+.meta .u-in-reply-to {
+  border: none;
+}
+
+.meta select,
+.meta #published-date,
+.meta input[type=datetime] {
+  display: block;
+  width: 100%;
+}
+
+.p-location {
+  margin: 2em 0 0 0;
+}
+
+.syndication {
+  margin-bottom: 2em;
+}
+
+.syndication legend {
+  color: #a9a9a9;
+  font-weight: bold;
+  margin-bottom: .25em;
+}
+
+.syndication ul,
+.syndication li {
+  margin: 0;
+  padding: 0;
+  margin-top: .25em;
+}
+
+.syndication li {
+  width: 48%;
+  display: inline-block;
+}
+
+.actions label {
+  float: right;
+  margin-right: .5em;
+}
+
+.actions label,
+.syndication label {
+  color: #a9a9a9;
+  padding: .5em;
+  display: block;
+  border: 1px solid #eee;
+  -webkit-touch-callout: none;
+  -webkit-user-select:   none;
+  -khtml-user-select:    none;
+  -moz-user-select:      none;
+  -ms-user-select:       none;
+  user-select:           none;
+}
+
+.actions     label::selection,
+.syndication label::selection      { background: transparent; }
+.actions     label::-moz-selection,
+.syndication label::-moz-selection { background: transparent; }
+
+.actions     input[type=checkbox],
+.syndication input[type=checkbox] {
+  display: none;
+}
+
+.actions     input:checked + label,
+.syndication input:checked + label {
+  color: black;
+  border: 1px solid black;
+}
+
+aside .meta {
+  margin: 1em 0;
+}
+
+@media (min-width: 768pt) {
+  .p-hs-title    { font-size: 4em;    }
+  .p-hs-subtitle { font-size: 2.5em;  }
+  .e-content     { font-size: 1.25em; }
+  .p-hs-content-count,
+  .p-location input,
+  .meta input         { font-size: 1em; }
+
+  .syndication ul,
+  .syndication li {
+    display: inline-block;
+    width: auto;
+  }
+
+  .meta input[type=datetime],
+  aside .meta input {
+    width: 50%;
+    display: inline;
+    float: left;
+  }
+
+  .p-location .p-name { width: 100%; }
+
+  .p-location input {
+    width: 33%;
+    display: inline-block;
+  }
+}

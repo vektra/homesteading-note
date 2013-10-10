@@ -1,10 +1,10 @@
-<h1><%= link_to "Settings", settings_path %></h1>
+<article class="h-entry" id="settings">
+  <h1 class="p-name"><%= link_to "Settings", settings_path %></h1>
 
-<article>
   <%= form_for(@setting) do |f| %>
     <% if @setting.errors.any? %>
-      <div id="error_explanation">
-        <p><%= pluralize(@setting.errors.count, "error") %> prohibited this setting from being saved:</p>
+      <div class="alert alert-danger">
+        <h4><%= pluralize(@setting.errors.count, "error") %> prohibited this setting from being saved:</h4>
 
         <ul>
           <% @setting.errors.full_messages.each do |msg| %>
@@ -14,11 +14,16 @@
       </div>
     <% end %>
 
-    <%= f.label :content, @setting.name %>
-    <%= f.text_field :content %>
+    <dl>
+      <dt>Editing <%= f.label      :content, @setting.name   %></dt>
+      <dd>        <%= f.text_field :content, autofocus: true %></dd>
 
-    <%= f.button %>
+      <dd class="actions">
+        <%= link_to  "Cancel", settings_url, class: "action"      %>
+        <%= f.button "Save",                 class: "action-save" %>
+      </dd>
+    </dl>
   <% end %>
 
-  <%= render partial: "settings" %>
+  <%= render "settings" %>
 </article>

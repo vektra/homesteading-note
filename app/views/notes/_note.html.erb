@@ -2,29 +2,54 @@
   <% if action_name == "index" %><li><% end %>
 
     <article id="note_<%= note.id %>" class="h-entry hentry as-object as-note">
-      <div class="p-name e-content entry-title entry-content">
-        <%= simple_format note.content %>
+      <header>
+        <h1 class="p-name entry-title">
+          <%= link_to note.path, rel: "bookmark", class: "u-url" do %>
+            <% unless note.title.blank? %>   <span class="p-hs-title">   <%= note.title %>   </span><% end %>
+            <% unless note.subtitle.blank? %><span class="p-hs-subtitle"><%= note.subtitle %></span><% end %>
+          <% end %>
+
+          <%= link_to "Edit", edit_note_url(note.params), class: "edit" if logged_in? %>
+        </h1>
+      </header>
+
+      <div class="e-content entry-content">
+        <%= raw note.content %>
       </div>
 
       <footer>
-        <%= render partial: "/shared/published_meta",
-                   locals:  { note: note } %>
+        <p>
+          <a href="<%= note.path %>" rel="bookmark" class="as-verb as-verb-published">Published</a>
+
+          <%= time_tag note.created_at, class: "dt-published published" do %>
+            <%= small_word_tag "on" %>
+            <%= human_readable_date note.created_at %>
+
+            <%= small_word_tag "at" %>
+            <%= human_readable_time note.created_at %>
+          <% end %>
+
+          <%= small_word_tag "by" %>
+
+          <span class="h-card vcard p-author author p-contributor">
+            <a href="<%= setting :author_url %>" rel="me" class="u-url url">
+              <span class="p-name fn as-actor">
+                <%= setting :author_name %>
+              </span>
+            </a>
+          </span>
+        </p>
+
+        <% unless note.in_reply_to.blank? %>
+          <p>
+            <b>In Reply To:</b>
+            <a href="<%= note.in_reply_to %>" class="u-in-reply-to">
+              <%= note.in_reply_to.gsub(/\//, "/<wbr />").html_safe %>
+            </a>
+          </p>
+        <% end %>
       </footer>
     </article>
-
-    <% unless note.in_reply_to.blank? %>
-      <aside class="previous-in-thread">
-        <p>
-          <b>In reply to:</b>
-          <a href="<%= note.in_reply_to %>" rel="in-reply-to prev external" class="u-in-reply-to">
-            <%= note.in_reply_to %>
-          </a>
-        </p>
-      </aside>
-    <% end %>
-
-    <%= render partial: "admin_nav",
-               locals:  { note: note } %>
 
   <% if action_name == "index" %></li><% end %>
 <% end %>

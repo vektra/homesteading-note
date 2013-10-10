@@ -1,4 +1,10 @@
 class Setting < ActiveRecord::Base
-  attr_accessible :content, :name
-  validates :name, :presence => true
+  validates :name,    :presence => true
+  validates :content, :presence => true
+
+  scope :editable, -> { where(editable: true) }
+
+  def title
+    name.gsub(/_/, " ").titleize
+  end
 end

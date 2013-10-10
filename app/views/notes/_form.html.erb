@@ -1,34 +1,100 @@
-<%= form_for(@note) do |f| %>
-
-  <% if @note.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h2>
-
-      <ul>
-        <% @note.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
+<%= form_for @note, url: @note.path, html: { class: "h-entry" } do |f| %>
+  <% if editing? %>
+    <h4 class="alert alert-info">Editing <%= link_to @note.name, @note.path %></h4>
   <% end %>
 
-  <div class="field">
-    <%= f.label :content, "Note Content (REQUIRED)" %>
-    <%= f.text_area :content %>
-  </div>
+  <main>
+    <% if @note.errors.any? %>
+      <div class="alert alert-danger">
+        <h4><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h4>
 
-  <div class="field">
-    <%= f.label :in_reply_to, "In Reply To (optional)" %>
-    <%= f.url_field :in_reply_to %>
-  </div>
+        <ul>
+          <% @note.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-  <div class="field checkbox">
-    <%= f.label :private, "Private Note?" %>
-    <%= f.check_box :private %>
-  </div>
+    <fieldset>
+      <%= f.label      :title, class: "screen-reader-only" %>
+      <%= f.text_field :title, class: "p-hs-title", placeholder: "Title", autofocus: autofocus_value %>
 
-  <div class="actions">
-    <%= link_to "Cancel", notes_path %>
-    <%= f.submit %>
-  </div>
+      <%= f.label      :subtitle, class: "screen-reader-only" %>
+      <%= f.text_field :subtitle, class: "p-hs-subtitle", placeholder: "Subtitle (optional)" %>
+
+      <%= hidden_field_tag "p-name", "", class: "p-name" %>
+    </fieldset>
+
+    <fieldset class="content-container">
+      <%= f.label     :content, class: "screen-reader-only" %>
+      <%= f.text_area :content, class: "e-content", placeholder: "Content..." %>
+
+      <span id="content-count"  class="p-hs-content-count"></span>
+    </fieldset>
+
+    <fieldset class="meta">
+      <%= f.label      :tags, class: "screen-reader-only" %>
+      <%= f.text_field :tags, class: "p-hs-tags", placeholder: "#tags" %>
+
+      <%= f.label      :in_reply_to, class: "screen-reader-only" %>
+      <%= f.text_field :in_reply_to, class: "u-in-reply-to", placeholder: "In Reply To URLs" %>
+    </fieldset>
+
+    <fieldset class="actions">
+      <%= link_to "Delete", @note.path, class: "action-delete", method: :delete, data: { confirm: "This post will be immediately deleted. There is NO UNDO. Are you sure you want to delete it?" } %>
+
+      <%= link_to "Cancel", @note.path, class: "action",                         data: { confirm: "All changes made since you last published this post will be immediately lost. There is NO UNDO. Are you sure you want to discard your changes?" } %>
+
+      <%= f.button "Publish", class: "action-save" %>
+
+      <span>
+        <%= f.check_box :private %>
+        <%= f.label     :private %>
+      </span>
+
+      <time datetime="2013-09-15T11:34:53-0700" class="dt-updated">Saved 2 minutes ago</time>
+    </fieldset>
+  </main>
+
+  <aside>
+    <fieldset class="syndication">
+      <legend>Syndication</legend>
+
+      <%= f.label     :syndication, class: "screen-reader-only" %>
+      <%= f.text_area :syndication, class: "screen-reader-only" %>
+
+      <ul>
+        <li><input type="checkbox" name="appdotnet" id="appdotnet" /><label for="appdotnet">App.net  </label></li>
+        <li><input type="checkbox" name="facebook"  id="facebook"  /><label for="facebook"> Facebook </label></li>
+        <li><input type="checkbox" name="medium"    id="medium"    /><label for="medium">   Medium   </label></li>
+        <li><input type="checkbox" name="tumblr"    id="tumblr"    /><label for="tumblr">   Tumblr   </label></li>
+        <li><input type="checkbox" name="twitter"   id="twitter"   /><label for="twitter">  Twitter  </label></li>
+        <li><input type="checkbox" name="wordpress" id="wordpress" /><label for="wordpress">WordPress</label></li>
+      </ul>
+    </fieldset>
+
+    <fieldset class="meta">
+      <%= f.label          :published_at, "Published Date", class: "screen-reader-only" %>
+      <%= f.datetime_field :published_at, class: "dt-published", placeholder: "YYYY-MM-DDTHH:MM-ZZ:ZZ" %>
+
+      <%= f.label      :slug, class: "screen-reader-only" %>
+      <%= f.text_field :slug, class: "p-hs-slug", placeholder: "post-slug-generated-from-title" %>
+    </fieldset>
+
+    <fieldset class="p-location h-card">
+      <%= f.label      :location_name,      class: "screen-reader-only" %>
+      <%= f.text_field :location_name,      class: "p-name",       placeholder: "Location" %>
+
+      <%= f.label      :location_latitude,  class: "screen-reader-only" %>
+      <%= f.text_field :location_latitude,  class: "p-latitude",   placeholder: "Latitude" %>
+
+      <%= f.label      :location_longitude, class: "screen-reader-only" %>
+      <%= f.text_field :location_longitude, class: "p-longitude",  placeholder: "Longitude" %>
+
+      <%= f.label      :location_altitude,  class: "screen-reader-only" %>
+      <%= f.text_field :location_altitude,  class: "p-altitude",   placeholder: "Altitude" %>
+    </fieldset>
+  </aside>
+
 <% end %>

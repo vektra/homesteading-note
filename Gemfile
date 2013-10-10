@@ -2,35 +2,22 @@ source "https://rubygems.org"
 
 ruby "1.9.3"
 
-
 # homesteading shared stuff
 gem "homesteading-tasks"
 
-gem "rails",       "~> 3.2.13"
-gem "bcrypt-ruby", "~> 3.0.1"
+gem "rails",         "~> 4.0.0"
+gem "sass-rails",    "~> 4.0.0"
+gem "uglifier",      ">= 1.3.0"
+gem "puma",          "~> 2.6.0"
 gem "jquery-rails"
-gem "json"
-gem "puma",        "~> 2.1.1"
 gem "quiet_assets"
-
-group :development do
-  gem "taps"
-  gem "gx"
-end
-
-group :assets do
-  gem "sass-rails",   "~> 3.2.5"
-  gem "uglifier",     "~> 1.3.0"
-end
+gem "will_paginate", "~> 3.0"
 
 group :test, :development do
+  gem "better_errors"
   gem "sqlite3"
-  gem "rails-default-database"
   gem "rspec-rails"
   gem "fabrication"
-  gem "guard-rspec"
-  gem "guard-spork"
-  gem "rb-fsevent"
   gem "simplecov", :require => false
 end
 

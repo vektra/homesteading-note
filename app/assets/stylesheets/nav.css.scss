@@ -1,0 +1,13 @@
+nav[role="navigation"] {
+  width: 80%;
+  margin: 2em auto;
+  border-bottom: 1px solid #eee;
+  padding-bottom: .5em;
+
+  ul       { width: 50%; display: inline; margin: 0; padding: 0; }
+  ul.admin { float: right; text-align: right; }
+  li       { display: inline; margin-right: .25em; }
+
+  a        { text-decoration: none; }
+  a:hover  { border-bottom: 1px solid black; }
+}
