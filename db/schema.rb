@@ -14,8 +14,6 @@
 ActiveRecord::Schema.define(version: 20131006075652) do
 
   create_table "notes", force: true do |t|
-    t.text     "title"
-    t.text     "subtitle"
     t.text     "content"
     t.text     "in_reply_to"
     t.text     "tags"

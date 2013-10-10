@@ -54,9 +54,6 @@ class Note < ActiveRecord::Base
   end
 
   def name
-    pieces = []
-    pieces << title    unless title.blank?
-    pieces << subtitle unless subtitle.blank?
-    pieces.join (" : ")
+    content
   end
 end

@@ -4,22 +4,17 @@
     <article id="note_<%= note.id %>" class="h-entry hentry as-object as-note">
       <header>
         <h1 class="p-name entry-title">
-          <%= link_to note.path, rel: "bookmark", class: "u-url" do %>
-            <% unless note.title.blank? %>   <span class="p-hs-title">   <%= note.title %>   </span><% end %>
-            <% unless note.subtitle.blank? %><span class="p-hs-subtitle"><%= note.subtitle %></span><% end %>
-          <% end %>
-
           <%= link_to "Edit", edit_note_url(note.params), class: "edit" if logged_in? %>
         </h1>
       </header>
 
-      <div class="e-content entry-content">
+      <div class="e-content entry-content p-name entry-title">
         <%= raw note.content %>
       </div>
 
       <footer>
         <p>
-          <a href="<%= note.path %>" rel="bookmark" class="as-verb as-verb-published">Published</a>
+          <a href="<%= note.path %>" rel="bookmark" class="u-url url as-verb as-verb-published">Published</a>
 
           <%= time_tag note.created_at, class: "dt-published published" do %>
             <%= small_word_tag "on" %>

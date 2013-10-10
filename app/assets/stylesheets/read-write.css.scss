@@ -60,18 +60,6 @@ fieldset {
   padding: 0;
 }
 
-.p-hs-title {
-  font-size: 2em;
-  font-weight: bold;
-  display: block;
-}
-
-.p-hs-subtitle {
-  font-size: 1.5em;
-  display: block;
-  font-weight: normal;
-}
-
 .content-container {
   position: relative;
 }
@@ -249,8 +237,6 @@ aside .meta {
 }
 
 @media (min-width: 768pt) {
-  .p-hs-title    { font-size: 4em;    }
-  .p-hs-subtitle { font-size: 2.5em;  }
   .e-content     { font-size: 1.25em; }
   .p-hs-content-count,
   .p-location input,

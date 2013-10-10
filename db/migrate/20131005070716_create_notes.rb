@@ -1,9 +1,7 @@
 class CreateNotes < ActiveRecord::Migration
   def change
     create_table :notes do |t|
-      t.text :title,
-             :subtitle,
-             :content,
+      t.text :content,
              :in_reply_to,
              :tags,
              :syndication,
@@ -20,7 +18,7 @@ class CreateNotes < ActiveRecord::Migration
                :minute,
                :second
 
-      t.boolean :private
+      t.boolean  :private
       t.datetime :published_at
 
       t.timestamps

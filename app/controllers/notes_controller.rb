@@ -4,8 +4,8 @@ class NotesController < ApplicationController
   def index
     @page_title = "Notes"
     @notes   = Note.paginate(per_page: 5,
-                                   order:    "published_at DESC",
-                                   page:     params[:page])
+                             order:    "published_at DESC",
+                             page:     params[:page])
   end
 
   def show
@@ -15,7 +15,7 @@ class NotesController < ApplicationController
   # require auth
   def new
     @page_title = "New Note"
-    @note    = Note.new
+    @note       = Note.new
   end
 
   # require auth
@@ -98,7 +98,7 @@ class NotesController < ApplicationController
     separator = "-"
 
     if params[:note][:slug].blank?
-      name = "#{@note.title} #{@note.subtitle}"
+      name = @note.content
     else
       name = params[:note][:slug]
     end
@@ -112,6 +112,6 @@ class NotesController < ApplicationController
   end
 
   def note_params
-    params.require(:note).permit(:title, :subtitle, :content, :in_reply_to, :tags, :syndication, :slug, :location_name, :location_latitude, :location_longitude, :location_altitude, :private, :published_at)
+    params.require(:note).permit(:content, :in_reply_to, :tags, :syndication, :slug, :location_name, :location_latitude, :location_longitude, :location_altitude, :private, :published_at)
   end
 end

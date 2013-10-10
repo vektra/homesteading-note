@@ -16,19 +16,9 @@
       </div>
     <% end %>
 
-    <fieldset>
-      <%= f.label      :title, class: "screen-reader-only" %>
-      <%= f.text_field :title, class: "p-hs-title", placeholder: "Title", autofocus: autofocus_value %>
-
-      <%= f.label      :subtitle, class: "screen-reader-only" %>
-      <%= f.text_field :subtitle, class: "p-hs-subtitle", placeholder: "Subtitle (optional)" %>
-
-      <%= hidden_field_tag "p-name", "", class: "p-name" %>
-    </fieldset>
-
     <fieldset class="content-container">
       <%= f.label     :content, class: "screen-reader-only" %>
-      <%= f.text_area :content, class: "e-content", placeholder: "Content..." %>
+      <%= f.text_area :content, class: "e-content p-name", placeholder: "Content...", autofocus: autofocus_value %>
 
       <span id="content-count"  class="p-hs-content-count"></span>
     </fieldset>
