@@ -64,9 +64,9 @@ class NotesController < ApplicationController
     # mulitple notes on that day with that slug, use the right nth one
     elsif notes.length > 1
       @note = Note.where(year:  params[:year]
-                       ).where(month: params[:month]
-                       ).where(day:   params[:day]
-                       ).where(slug:  params[:slug]).load.first
+                 ).where(month: params[:month]
+                 ).where(day:   params[:day]
+                 ).where(slug:  params[:slug]).load.first
 
     # no notes that match slug, go to /notes feed
     else notes.length.zero?
@@ -94,7 +94,16 @@ class NotesController < ApplicationController
 
   def set_slug
     if @note.slug.blank?
-      @note.slug = 1
+      notes = Note.where(year:  params[:year]  || Time.now.year
+                 ).where(month: params[:month] || Time.now.month
+                 ).where(day:   params[:day]   || Time.now.day
+                 ).load
+
+      if notes.length.zero?
+        @note.slug = 1
+      else
+        @note.slug = notes.length + 1
+      end
     end
   end
 
