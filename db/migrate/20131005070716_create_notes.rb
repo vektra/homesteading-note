@@ -8,7 +8,8 @@ class CreateNotes < ActiveRecord::Migration
              :location_name,
              :location_latitude,
              :location_longitude,
-             :location_altitude
+             :location_altitude,
+             :slug
 
       t.string :year,
                :month,

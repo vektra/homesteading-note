@@ -9,14 +9,14 @@ HomesteadingNote::Application.routes.draw do
 
   get "/notes", to: redirect("/")
 
-  get "/notes/:year/:month/:day/:nth_of_day/edit",
+  get "/notes/:year/:month/:day/:slug/edit",
       to:          "notes#edit",
-      constraints: { year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/, nth_of_day: /\d+/ },
+      constraints: { year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/, slug: /\d+/ },
       as:          "edit_note"
 
-  get "/notes/:year/:month/:day/:nth_of_day",
+  get "/notes/:year/:month/:day/:slug",
       to:          "notes#show",
-      constraints: { year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/, nth_of_day: /\d+/ },
+      constraints: { year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/, slug: /\d+/ },
       as:          "note"
 
   get "/notes/new",
@@ -26,11 +26,11 @@ HomesteadingNote::Application.routes.draw do
   post "/notes",
       to:          "notes#create"
 
-  patch "/notes/:year/:month/:day/:nth_of_day",
+  patch "/notes/:year/:month/:day/:slug",
       to:          "notes#update",
-      constraints: { year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/, nth_of_day: /\d+/ }
+      constraints: { year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/, slug: /\d+/ }
 
-  delete "/notes/:year/:month/:day/:nth_of_day",
+  delete "/notes/:year/:month/:day/:slug",
       to:          "notes#destroy",
-      constraints: { year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/, nth_of_day: /\d+/ }
+      constraints: { year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/, slug: /\d+/ }
 end

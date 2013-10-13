@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20131006075652) do
     t.text     "location_latitude"
     t.text     "location_longitude"
     t.text     "location_altitude"
+    t.text     "slug"
     t.string   "year"
     t.string   "month"
     t.string   "day"

@@ -25,6 +25,7 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
     set_datetime_fields
+    set_slug
 
     if @note.save
       redirect_to notes_url, notice: "Note was successfully created."
@@ -36,6 +37,7 @@ class NotesController < ApplicationController
   # require auth
   def update
     set_datetime_fields
+    set_slug
 
     if @note.update(note_params)
       redirect_to notes_url, notice: "Note was successfully updated."
@@ -52,21 +54,23 @@ class NotesController < ApplicationController
 
   private
   def set_note
-    # get all notes that match the YYYY/MM/DD from the URL
-    notes = Note.where(year:  params[:year]
-               ).where(month: params[:month]
-               ).where(day:   params[:day]).load
+    # get all notes that match the slug from the URL:  yyyy/mm/dd/SLUG
+    notes = Note.where(slug: params[:slug]).load
 
-    # no notes that match URL, go to /notes feed
-    if notes.length.zero?
-      return redirect_to notes_url
-    # mulitple notes on that day, use the right nth one
-    elsif notes.length > 1
-      index = params[:nth_of_day].to_i - 1
-      @note = notes[index]
     # just one match, use it!
-    else
+    if notes.length == 1
       @note = notes.first
+
+    # mulitple notes on that day with that slug, use the right nth one
+    elsif notes.length > 1
+      @note = Note.where(year:  params[:year]
+                       ).where(month: params[:month]
+                       ).where(day:   params[:day]
+                       ).where(slug:  params[:slug]).load.first
+
+    # no notes that match slug, go to /notes feed
+    else notes.length.zero?
+      return redirect_to notes_url
     end
   end
 
@@ -88,6 +92,12 @@ class NotesController < ApplicationController
     end
   end
 
+  def set_slug
+    if @note.slug.blank?
+      @note.slug = 1
+    end
+  end
+
   def note_params
     params.require(:note).permit(:content,
                                  :in_reply_to,
@@ -97,6 +107,7 @@ class NotesController < ApplicationController
                                  :location_name,
                                  :private,
                                  :published_at,
+                                 :slug,
                                  :syndication,
                                  :tags)
   end
