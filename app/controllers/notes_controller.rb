@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :set_note, only: [:edit, :update, :show, :destroy]
 
   def index
     @page_title = "Notes"
@@ -63,10 +63,10 @@ class NotesController < ApplicationController
 
     # mulitple notes on that day with that slug, use the right nth one
     elsif notes.length > 1
-      @note = Note.where(year:  params[:year]
-                 ).where(month: params[:month]
-                 ).where(day:   params[:day]
-                 ).where(slug:  params[:slug]).load.first
+      @note = Note.where(year:  params[:year]  || @note.year
+                 ).where(month: params[:month] || @note.month
+                 ).where(day:   params[:day]   || @note.day
+                 ).where(slug:  params[:slug]  || @note.slug).load.first
 
     # no notes that match slug, go to /notes feed
     else notes.length.zero?
@@ -94,9 +94,9 @@ class NotesController < ApplicationController
 
   def set_slug
     if @note.slug.blank?
-      notes = Note.where(year:  params[:year]  || Time.now.year
-                 ).where(month: params[:month] || Time.now.month
-                 ).where(day:   params[:day]   || Time.now.day
+      notes = Note.where(year:  @note.year  || Time.now.year
+                 ).where(month: @note.month || Time.now.month
+                 ).where(day:   @note.day   || Time.now.day
                  ).load
 
       if notes.length.zero?
