@@ -3,9 +3,7 @@ class NotesController < ApplicationController
 
   def index
     @page_title = "Notes"
-    @notes   = Note.paginate(per_page: 5,
-                             order:    "published_at DESC",
-                             page:     params[:page])
+    @notes      = Note.paginate(per_page: 5, page: params[:page])
   end
 
   def show
@@ -56,8 +54,8 @@ class NotesController < ApplicationController
   def set_note
     # get all notes that match the YYYY/MM/DD from the URL
     notes = Note.where(year:  params[:year]
-                     ).where(month: params[:month]
-                     ).where(day:   params[:day]).load
+               ).where(month: params[:month]
+               ).where(day:   params[:day]).load
 
     # no notes that match URL, go to /notes feed
     if notes.length.zero?
@@ -91,6 +89,15 @@ class NotesController < ApplicationController
   end
 
   def note_params
-    params.require(:note).permit(:content, :in_reply_to, :tags, :syndication, :location_name, :location_latitude, :location_longitude, :location_altitude, :private, :published_at)
+    params.require(:note).permit(:content,
+                                 :in_reply_to,
+                                 :location_altitude,
+                                 :location_latitude,
+                                 :location_longitude,
+                                 :location_name,
+                                 :private,
+                                 :published_at,
+                                 :syndication,
+                                 :tags)
   end
 end
