@@ -3,7 +3,7 @@ class NotesController < ApplicationController
 
   def index
     @page_title = "Notes"
-    @notes      = Note.paginate(per_page: 5, page: params[:page])
+    @notes      = Note.reversed.paginate(per_page: 5, page: params[:page])
   end
 
   def show

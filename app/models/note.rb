@@ -1,6 +1,6 @@
 class Note < ActiveRecord::Base
   validates :content, :presence => true
-  default_scope { order("published_at desc") }
+  scope     :reversed, -> { order("published_at desc") }
 
   def public?
     !self.private?
