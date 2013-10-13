@@ -66,10 +66,7 @@
 
     <fieldset class="meta">
       <%= f.label          :published_at, "Published Date", class: "screen-reader-only" %>
-      <%= f.datetime_field :published_at, class: "dt-published", placeholder: "YYYY-MM-DDTHH:MM-ZZ:ZZ" %>
-
-      <%= f.label      :slug, class: "screen-reader-only" %>
-      <%= f.text_field :slug, class: "p-hs-slug", placeholder: "post-slug-generated-from-title" %>
+      <%= f.datetime_field :published_at,                   class: "dt-published", placeholder: "YYYY-MM-DDTHH:MM-ZZ:ZZ" %>
     </fieldset>
 
     <fieldset class="p-location h-card">

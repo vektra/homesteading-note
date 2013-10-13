@@ -13,7 +13,6 @@ class Note < ActiveRecord::Base
     pieces << published_at.month
     pieces << published_at.day
     pieces << 1 # TODO nth_of_day
-    pieces << slug
 
     "/" + pieces.join("/")
   end
@@ -24,16 +23,14 @@ class Note < ActiveRecord::Base
         year:       Time.now.year,
         month:      Time.now.month,
         day:        Time.now.day,
-        nth_of_day: 1, # TODO nth_of_day
-        slug:       slug
+        nth_of_day: 1 # TODO nth_of_day
       }
     else
       {
         year:       year,
         month:      month,
         day:        day,
-        nth_of_day: 1, # TODO nth_of_day
-        slug:       slug
+        nth_of_day: 1 # TODO nth_of_day
       }
     end
   end
@@ -47,7 +44,6 @@ class Note < ActiveRecord::Base
       pieces << published_at.month
       pieces << published_at.day
       pieces << 1 # TODO nth_of_day
-      pieces << slug
     end
 
     "/" + pieces.join("/")

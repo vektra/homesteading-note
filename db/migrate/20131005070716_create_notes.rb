@@ -5,7 +5,6 @@ class CreateNotes < ActiveRecord::Migration
              :in_reply_to,
              :tags,
              :syndication,
-             :slug,
              :location_name,
              :location_latitude,
              :location_longitude,

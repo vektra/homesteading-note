@@ -27,7 +27,6 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
     set_datetime_fields
-    set_slug
 
     if @note.save
       redirect_to notes_url, notice: "Note was successfully created."
@@ -39,7 +38,6 @@ class NotesController < ApplicationController
   # require auth
   def update
     set_datetime_fields
-    set_slug
 
     if @note.update(note_params)
       redirect_to notes_url, notice: "Note was successfully updated."
@@ -56,18 +54,17 @@ class NotesController < ApplicationController
 
   private
   def set_note
-    # get all notes that match the YYYY/MM/DD/SLUG from the URL
+    # get all notes that match the YYYY/MM/DD from the URL
     notes = Note.where(year:  params[:year]
                      ).where(month: params[:month]
-                     ).where(day:   params[:day]
-                     ).where(slug:  params[:slug]).load
+                     ).where(day:   params[:day]).load
 
     # no notes that match URL, go to /notes feed
     if notes.length.zero?
       return redirect_to notes_url
-    # mulitple notes on that day with that slug, use the right nth one
+    # mulitple notes on that day, use the right nth one
     elsif notes.length > 1
-      index    = params[:nth_of_day].to_i - 1
+      index = params[:nth_of_day].to_i - 1
       @note = notes[index]
     # just one match, use it!
     else
@@ -93,25 +90,7 @@ class NotesController < ApplicationController
     end
   end
 
-  def set_slug
-    blank     = ""
-    separator = "-"
-
-    if params[:note][:slug].blank?
-      name = @note.content
-    else
-      name = params[:note][:slug]
-    end
-
-    name.downcase.gsub(/\(|\)|\[|\]/, "").
-      gsub(/\./,       separator).
-      gsub(/-$|,|!|'/, blank).
-      gsub(/&amp;/,    blank).
-      gsub(/-/,        separator).
-      gsub(/ /,        separator)
-  end
-
   def note_params
-    params.require(:note).permit(:content, :in_reply_to, :tags, :syndication, :slug, :location_name, :location_latitude, :location_longitude, :location_altitude, :private, :published_at)
+    params.require(:note).permit(:content, :in_reply_to, :tags, :syndication, :location_name, :location_latitude, :location_longitude, :location_altitude, :private, :published_at)
   end
 end

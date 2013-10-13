@@ -2,7 +2,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.simplyCountable
-//= require jquery.slugit
 
 // for p-location geo fields
 // TODO: extract into plugin and out of global namespace
@@ -38,9 +37,6 @@ function ISODateString(d){
 
 
 $(function() {
-  // generate slug from content
-  $("#e-content").slugIt( { output: "#note_slug" } );
-
   // for notes
   $('#note_content').simplyCountable({
     counter:           '#content-count',

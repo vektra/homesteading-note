@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20131006075652) do
     t.text     "in_reply_to"
     t.text     "tags"
     t.text     "syndication"
-    t.text     "slug"
     t.text     "location_name"
     t.text     "location_latitude"
     t.text     "location_longitude"
