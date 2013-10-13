@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 
 HomesteadingNote::Application.load_tasks
-# import "server.rake"
+require "homesteading_tasks"
