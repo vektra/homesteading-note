@@ -1,6 +1,8 @@
 module ApplicationHelper
-  def read_action?
-    action_name =~ /show|index/
+  def write_action?
+    unless controller_name == "settings"
+      action_name =~ /new|edit/
+    end
   end
 
   def editing?
