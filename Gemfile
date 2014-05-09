@@ -1,17 +1,20 @@
 source "https://rubygems.org"
 
-ruby "1.9.3"
+ruby "2.1.1"
 
 # homesteading shared stuff
 gem "homesteading-tasks"
 
-gem "rails",         "~> 4.0.0"
-gem "sass-rails",    "~> 4.0.0"
-gem "uglifier",      ">= 1.3.0"
-gem "puma",          "~> 2.6.0"
+
+# Temporary fix
+gem "rails", "~> 4.1.0"
+gem "sprockets", "=2.11.0"
+gem "sass-rails"
+gem "uglifier"
+gem "puma"
 gem "jquery-rails"
 gem "quiet_assets"
-gem "will_paginate", "~> 3.0"
+gem "will_paginate"
 
 group :test, :development do
   gem "better_errors"
@@ -23,4 +26,5 @@ end
 
 group :production do
   gem "pg"
+  gem "rails_12factor"
 end
