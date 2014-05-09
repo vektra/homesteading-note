@@ -5,9 +5,8 @@ ruby "2.1.1"
 # homesteading shared stuff
 gem "homesteading-tasks"
 
-
 # Temporary fix
-gem "rails", "~> 4.1.0"
+gem "rails",     "~> 4.1.0"
 gem "sprockets", "=2.11.0"
 gem "sass-rails"
 gem "uglifier"
