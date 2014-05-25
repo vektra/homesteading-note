@@ -1,4 +1,4 @@
-# creates teh default settings with empty values
+# creates the default settings with empty values
 # the site owner will need to populate those with real values
 [
   ["Author Name", "",     true ],
