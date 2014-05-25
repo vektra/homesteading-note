@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131006075652) do
+ActiveRecord::Schema.define(version: 20131006074600) do
 
   create_table "notes", force: true do |t|
     t.text     "content"
