@@ -1,5 +1,6 @@
 # creates the default settings with empty values
 # the site owner will need to populate those with real values
+puts "Creating default settings..."
 [
   ["Author Name", "",     true ],
   ["Author URL",  "",     true ],
@@ -14,3 +15,4 @@
   s.editable = setting[2]
   s.save(:validate => false)
 end
+puts "Default settings created."
