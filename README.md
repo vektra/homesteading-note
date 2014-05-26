@@ -23,8 +23,7 @@ to feed updates downstream to subscriber apps.
 
     ```bash
     cp config/database.example.yml config/database.yml
-    rake db:migrate
-    rake db:seed
+    rake db:setup
     ```
 
 3. Run the specs.
