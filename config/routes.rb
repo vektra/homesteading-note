@@ -3,7 +3,6 @@ HomesteadingNote::Application.routes.draw do
   resources :settings, only: [:index, :edit, :show, :update]
 
   # Rails Form CRUD
-
   get "/notes/new",
       to:          "notes#new",
       as:          "new_note"
@@ -34,7 +33,6 @@ HomesteadingNote::Application.routes.draw do
       constraints: { year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/ }
 
   # Pagination
-
   get "/notes/page/1",                    to: redirect("/")
   get "/notes/page",                      to: redirect("/")
   get "/notes/page/:page",                to: "notes#index"
