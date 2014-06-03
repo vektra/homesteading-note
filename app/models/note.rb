@@ -1,5 +1,5 @@
 class Note < ActiveRecord::Base
-  validates :content, :presence => true
+  validates :content, presence: true
   scope     :reversed, -> { order("published_at desc") }
 
   def public?

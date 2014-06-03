@@ -1,6 +1,6 @@
 class Setting < ActiveRecord::Base
-  validates :name,    :presence => true
-  validates :content, :presence => true
+  validates :name,    presence: true
+  validates :content, presence: true
 
   scope :editable, -> { where(editable: true) }
 
