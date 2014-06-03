@@ -2,13 +2,6 @@ HomesteadingNote::Application.routes.draw do
   root      to: "notes#index"
   resources :settings, only: [:index, :edit, :show, :update]
 
-  # Pagination
-
-  get "/notes",            to: redirect("/")
-  get "/notes/page/1",     to: redirect("/")
-  get "/notes/page",       to: redirect("/")
-  get "/notes/page/:page", to: "notes#index"
-
   # Rails Form CRUD
 
   get "/notes/new",
@@ -39,4 +32,11 @@ HomesteadingNote::Application.routes.draw do
   delete "/notes/:year/:month/:day/:slug",
       to:          "notes#destroy",
       constraints: { year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/ }
+
+  # Pagination
+
+  get "/notes/page/1",                    to: redirect("/")
+  get "/notes/page",                      to: redirect("/")
+  get "/notes/page/:page",                to: "notes#index"
+  get "(/notes)(/:year)(/:month)(/:day)", to: "notes#index"
 end
