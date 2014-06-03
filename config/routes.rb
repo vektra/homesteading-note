@@ -26,6 +26,10 @@ HomesteadingNote::Application.routes.draw do
   post "/notes",
       to:          "notes#create"
 
+  post "/notes/:year/:month/:day",
+       to:          "notes#create",
+       constraints: { year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/ }
+
   patch "/notes/:year/:month/:day/:slug",
       to:          "notes#update",
       constraints: { year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/, slug: /\d+/ }
