@@ -38,9 +38,7 @@
         <% unless note.in_reply_to.blank? %>
           <p>
             <b>In Reply To:</b>
-            <a href="<%= note.in_reply_to %>" class="u-in-reply-to">
-              <%= note.in_reply_to.gsub(/\//, "/<wbr />").html_safe %>
-            </a>
+            <%= link_to in_reply_to_urls(note) %>
           </p>
         <% end %>
       </footer>

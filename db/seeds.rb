@@ -13,6 +13,6 @@ puts "Creating default settings..."
   s.key      = setting[0].downcase.gsub(/\W/, "_")
   s.content  = setting[1]
   s.editable = setting[2]
-  s.save(:validate => false)
+  s.save(validate: false)
 end
 puts "Default settings created."

@@ -53,4 +53,21 @@ module ApplicationHelper
   def setting(key)
     Setting.where(key: key).first.content
   end
+
+  def in_reply_to_urls(post)
+    html = []
+
+    post.in_reply_to.split(" ").each do |in_reply_to|
+      text = in_reply_to.gsub(/^https?:\/\//, "").gsub(/\//, "/<wbr />").html_safe
+      url  = in_reply_to
+
+      unless url.match(/^http/)
+        url = "http://#{url}"
+      end
+
+      html << link_to(text, url, class: "u-in-reply-to").html_safe
+    end
+
+    html.join(" ").html_safe
+  end
 end
