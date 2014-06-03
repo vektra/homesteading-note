@@ -4,11 +4,10 @@ HomesteadingNote::Application.routes.draw do
 
   # Pagination
 
-  get "/notes/page/1",     to: redirect("/notes")
-  get "/notes/page",       to: redirect("/notes")
+  get "/notes",            to: redirect("/")
+  get "/notes/page/1",     to: redirect("/")
+  get "/notes/page",       to: redirect("/")
   get "/notes/page/:page", to: "notes#index"
-
-  get "/notes", to: redirect("/")
 
   # Rails Form CRUD
 
@@ -19,9 +18,9 @@ HomesteadingNote::Application.routes.draw do
   post "/notes",
       to:          "notes#create"
 
-  post "/articles/:year/:month/:day",
-       to:          "notes#create",
-       constraints: { year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/ }
+  post "/notes/:year/:month/:day",
+      to:          "notes#create",
+      constraints: { year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/ }
 
   get "/notes/:year/:month/:day/:slug",
       to:          "notes#show",
