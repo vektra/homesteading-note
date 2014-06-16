@@ -27,13 +27,13 @@ to feed updates downstream to subscriber apps.
 
     ```bash
     cp config/database.example.yml config/database.yml
-    rake db:setup
+    rake db:migrate
+    rake db:seed
     ```
 
 3. Run the specs.
 
     ```bash
-    rake db:test:prepare
     rspec
     ```
 
