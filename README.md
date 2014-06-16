@@ -1,6 +1,7 @@
 # Homesteading Note
 
-+[![Build Status](https://travis-ci.org/homesteading/homesteading-note.svg?branch=master)](https://travis-ci.org/homesteading/homesteading-note)
+[![Build Status](https://travis-ci.org/homesteading/homesteading-note.svg?branch=master)](https://travis-ci.org/homesteading/homesteading-note)
+[![Code Climate](https://codeclimate.com/github/homesteading/homesteading-note.png)](https://codeclimate.com/github/homesteading/homesteading-note)
 
 ## Spoke App for Notes
 
