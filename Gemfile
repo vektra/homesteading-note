@@ -16,15 +16,15 @@ gem "jquery-rails"
 gem "quiet_assets"
 gem "will_paginate"
 
-group :test do
-  gem "codeclimate-test-reporter", require: nil
-end
-
 group :test, :development do
-  gem "better_errors"
   gem "sqlite3"
   gem "rspec-rails"
   gem "fabrication"
+  gem "database_cleaner"
+end
+
+group :test do
+  gem "codeclimate-test-reporter", require: nil
 end
 
 group :production do

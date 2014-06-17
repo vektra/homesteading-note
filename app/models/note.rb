@@ -1,42 +1,20 @@
 class Note < ActiveRecord::Base
-  validates :content, presence: true
-  default_scope     { order("published_at desc") }
+  default_scope { order("published_at desc") }
 
-  def public?
-    !self.private?
-  end
+  validates :content, presence: true
+  validates :published_at, :year, :month, :day, :hour, :minute, :second, :slug,
+            presence:true, unless: :new_record?
+
+  before_create :set_published_at_attrs, :set_slug
+  before_update :set_published_at_attrs, :set_slug
 
   def path
-    pieces = []
-    pieces << self.class.to_s.downcase.pluralize
-
-    unless published_at.nil?
-      pieces << published_at.year
-      pieces << published_at.month.to_s.rjust(2, "0")
-      pieces << published_at.day.to_s.rjust(  2, "0")
-      pieces << slug
-    end
-
-    "/" + pieces.join("/")
+    klass = self.class.to_s.downcase.pluralize
+    "/" + [klass, year, month, day, slug].compact.join("/")
   end
-  alias :path :to_param
 
   def params
-    if published_at.blank?
-      {
-        year:       Time.now.year,
-        month:      Time.now.month.to_s.rjust(2, "0"),
-        day:        Time.now.day.to_s.rjust(  2, "0"),
-        slug:       slug
-      }
-    else
-      {
-        year:       year,
-        month:      month.to_s.rjust(2, "0"),
-        day:        day.to_s.rjust(  2, "0"),
-        slug:       slug
-      }
-    end
+    { year: year, month: month, day: day, slug: slug }
   end
 
   def public?
@@ -45,5 +23,29 @@ class Note < ActiveRecord::Base
 
   def name
     content
+  end
+
+  private
+
+  def set_published_at_attrs
+    self.published_at ||= Time.zone.now
+    self.year   = published_at.year
+    self.month  = published_at.month.to_s.rjust(2, '0')
+    self.day    = published_at.day.to_s.rjust(2, '0')
+    self.hour   = published_at.hour
+    self.minute = published_at.min
+    self.second = published_at.sec
+  end
+
+  def set_slug
+    blank       = ""
+    separator   = "-"
+    self.slug ||= "#{content}"
+    self.slug   = slug.downcase.gsub(/\(|\)|\[|\]/, "").
+      gsub(/\./,       separator).
+      gsub(/-$|,|!|'/, blank).
+      gsub(/&amp;/,    blank).
+      gsub(/-/,        separator).
+      gsub(/ /,        separator)
   end
 end
