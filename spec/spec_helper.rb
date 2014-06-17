@@ -38,7 +38,7 @@ RSpec.configure do |config|
     end
   end
 
-  # TEMP to avoid deprecation warning for stub_chain. See:
+  # TEMP to avoid deprecation warning for stub_chain. See: [d38de8c]
   config.mock_with :rspec do |c|
     c.syntax = [:should, :expect]
   end
