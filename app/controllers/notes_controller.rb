@@ -24,9 +24,6 @@ class NotesController < ApplicationController
   # require auth
   def create
     @note = Note.new(note_params)
-    set_datetime_fields
-    set_slug
-
     if @note.save
       redirect_to notes_url, notice: "Note was successfully created."
     else
@@ -36,9 +33,6 @@ class NotesController < ApplicationController
 
   # require auth
   def update
-    set_datetime_fields
-    set_slug
-
     if @note.update(note_params)
       redirect_to notes_url, notice: "Note was successfully updated."
     else
@@ -52,7 +46,9 @@ class NotesController < ApplicationController
     redirect_to notes_url
   end
 
+
   private
+
   def set_note
     # get all notes that match the slug from the URL:  yyyy/mm/dd/SLUG
     notes = Note.where(slug: params[:slug]).load
@@ -71,39 +67,6 @@ class NotesController < ApplicationController
     # no notes that match slug, go to /notes feed
     else notes.length.zero?
       return redirect_to notes_url
-    end
-  end
-
-  def set_datetime_fields
-    if params[:note][:published_at].blank?
-      @note.year   = Time.now.year
-      @note.month  = Time.now.month
-      @note.day    = Time.now.day
-      @note.hour   = Time.now.hour
-      @note.minute = Time.now.min
-      @note.second = Time.now.sec
-    else
-      @note.year   = Time.parse(params[:note][:published_at]).year
-      @note.month  = Time.parse(params[:note][:published_at]).month
-      @note.day    = Time.parse(params[:note][:published_at]).day
-      @note.hour   = Time.parse(params[:note][:published_at]).hour
-      @note.minute = Time.parse(params[:note][:published_at]).min
-      @note.second = Time.parse(params[:note][:published_at]).sec
-    end
-  end
-
-  def set_slug
-    if @note.slug.blank?
-      notes = Note.where(year:  @note.year  || Time.now.year
-                 ).where(month: @note.month || Time.now.month
-                 ).where(day:   @note.day   || Time.now.day
-                 ).load
-
-      if notes.length.zero?
-        @note.slug = 1
-      else
-        @note.slug = notes.length + 1
-      end
     end
   end
 
