@@ -8,7 +8,8 @@ gem "homesteading_helpers"
 
 # Temporary fix
 gem "sprockets", "=2.11.0"
-gem "rails",     "~> 4.1.0"
+
+gem "rails",     "~> 4.1.2"
 gem "sass-rails"
 gem "uglifier"
 gem "puma"
