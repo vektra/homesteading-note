@@ -17,6 +17,13 @@ gem "jquery-rails"
 gem "quiet_assets"
 gem "will_paginate"
 
+group :development do
+  # for seeds.rb
+  gem "grailbird_updater"
+  gem "nokogiri"
+  gem "json"
+end
+
 group :test, :development do
   gem "sqlite3"
   gem "rspec-rails"
