@@ -43,7 +43,7 @@ GEM
       oauth
       trollop
     hike (1.2.3)
-    homesteading-tasks (0.0.5)
+    homesteading-tasks (0.0.7)
     homesteading_helpers (0.0.2)
       rails (~> 4.1.1)
     i18n (0.6.9)
