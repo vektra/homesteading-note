@@ -3,6 +3,13 @@
 
     <article id="note_<%= note.id %>" class="h-entry hentry as-object as-note">
       <header>
+        <% unless note.in_reply_to.blank? %>
+          <p class="meta">
+            <b>In Reply To:</b>
+            <%= link_to in_reply_to_urls(note) %>
+          </p>
+        <% end %>
+
         <h1 class="p-name entry-title">
           <%= link_to "Edit", edit_note_url(note.params), class: "edit" if logged_in? %>
         </h1>
@@ -12,7 +19,7 @@
         <%= simple_format note.content %>
       </div>
 
-      <footer>
+      <footer class="meta">
         <p>
           <%= link_to "Published", note.path, rel: "bookmark", class: "u-url url as-verb as-verb-published" %>
 
@@ -34,13 +41,6 @@
             <% end %>
           </span>
         </p>
-
-        <% unless note.in_reply_to.blank? %>
-          <p>
-            <b>In Reply To:</b>
-            <%= link_to in_reply_to_urls(note) %>
-          </p>
-        <% end %>
       </footer>
     </article>
 

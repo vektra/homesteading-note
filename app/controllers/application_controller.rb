@@ -14,9 +14,12 @@ class ApplicationController < ActionController::Base
     false
   end
 
+  # temp hack until we implement auth
   def require_auth
-    unless logged_in?
-      return redirect_to(root_path)
+    if Rails.env.production?
+      unless logged_in?
+        return redirect_to(root_path)
+      end
     end
   end
 end
