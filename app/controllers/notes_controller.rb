@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  before_action :set_note, only: [:edit, :update, :show, :destroy]
+  before_action :set_note,     only: [:edit, :update, :show, :destroy]
 
   def index
     @page_title = "Notes"
