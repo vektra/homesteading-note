@@ -77,7 +77,7 @@ describe NotesController, type: :controller do
     end
 
     it "assigns @page_title" do
-      expect(assigns(:page_title)).to eq "Editing Note &mdash; #{note.name}"
+      expect(assigns(:page_title)).to eq "Editing Note - #{note.name}"
     end
 
     it "renders the edit template" do

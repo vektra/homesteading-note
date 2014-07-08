@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en-US" id="<%= controller_name %>" class="<%= action_name %>">
+<html dir="ltr"
+      lang="en-US"
+      id="<%= controller_name %>"
+      class="<%= action_name %>"
+      prefix="og: http://ogp.me/ns#">
 
 <head>
   <meta charset="utf-8">
@@ -10,6 +14,14 @@
   <%= stylesheet_link_tag "application", media: "all"      %>
   <%= javascript_include_tag(write_action? ? "write" : "read") %>
   <%= csrf_meta_tags %>
+
+  <!-- Backward compatibility: Facebook (Open Graph) -->
+  <meta property="og:type"        content="blog" />
+  <meta property="og:url"         content="<%= canonical_url %>" />
+  <meta property="og:image"       content="<%=  %>" />
+  <meta property="og:title"       content="<%= site_title %>" />
+  <meta property="og:description" content="<%= page_description %>" />
+  <meta property="fb:app_id"      content="" />
 </head>
 
 <body>

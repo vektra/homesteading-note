@@ -83,4 +83,4 @@ The ground you stand on is liberated territory.
 In legal text, Homesteading Note is dedicated to the public domain
 using Creative Commons -- CC0 1.0 Universal.
 
-[http://creativecommons.org/publicdomain/zero/1.0](http://creativecommons.org/publicdomain/zero/1.0 "Creative Commons &mdash; CC0 1.0 Universal")
+[http://creativecommons.org/publicdomain/zero/1.0](http://creativecommons.org/publicdomain/zero/1.0 "Creative Commons - CC0 1.0 Universal")

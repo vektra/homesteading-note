@@ -18,7 +18,7 @@ class NotesController < ApplicationController
 
   # require auth
   def edit
-    @page_title = "Editing Note &mdash; #{@note.name}"
+    @page_title = "Editing Note - #{@note.name}"
   end
 
   # require auth
