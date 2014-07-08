@@ -2,11 +2,15 @@
 # the site owner will need to populate those with real values
 puts "Creating default settings..."
 [
-  ["Author Name", "",     true ],
-  ["Author URL",  "",     true ],
-  ["Hub URL",     "/",    true ],
-  ["Site Title",  "",     true ],
-  ["Post Type",   "note", false]
+  ["Author Name",       "",     true ],
+  ["Author URL",        "",     true ],
+  ["Hub URL",           "/",    true ],
+  ["Site Title",        "",     true ],
+  ["Site Description",  "",     true ],
+  ["Long Domain",       "",     true ],
+  ["Short Domain",      "",     true ],
+  ["Post Type",         "note", false]
+  ["Post Short Code",   "n",    false]
 ].each do |setting|
   s          = Setting.new
   s.name     = setting[0]
