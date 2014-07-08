@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def space
+    " "
+  end
+
   def index_action?
     action_name == "index"
   end
@@ -23,7 +27,6 @@ module ApplicationHelper
         links << content_tag(:li, link_to(external, thing.send(external_silo_url_key(external)), rel: rel, class:  "u-syndication"))
       end
     end
-
 
     if links.blank?
       space
