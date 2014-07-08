@@ -44,10 +44,10 @@ class Note < ActiveRecord::Base
     self.slug   = slug.downcase.
       gsub(/\(|\)|\[|\]\./, blank).
       gsub(/&amp;/,         blank).
-      gsub(/\W/,            separator).
-      gsub(/_/,             separator).
-      gsub(/ /,             separator).
-      gsub(/--/,            separator).
+      gsub(/\W+/,            separator).
+      gsub(/_+/,            separator).
+      gsub(/ +/,            separator).
+      gsub(/-+/,            separator).
       gsub(/^-+/,           blank).
       gsub(/-+$/,           blank)
   end
