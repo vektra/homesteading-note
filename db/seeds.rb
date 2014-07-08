@@ -9,7 +9,7 @@ puts "Creating default settings..."
   ["Site Description",  "",     true ],
   ["Long Domain",       "",     true ],
   ["Short Domain",      "",     true ],
-  ["Post Type",         "note", false]
+  ["Post Type",         "note", false],
   ["Post Short Code",   "n",    false]
 ].each do |setting|
   s          = Setting.new
