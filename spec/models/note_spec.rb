@@ -133,7 +133,7 @@ describe Note do
     end
 
     context "when #content includes punctuation" do
-      subject { Fabricate(:note, content: "Hello, World. This is Homesteading! Have you heard of the #indieweb?") }
+      subject { Fabricate(:note, content: "Hello, World. This is Homesteading! Have _you_ heard of the #indieweb?") }
 
       it "is stripped of punctuation" do
         expect(subject.slug).to eq "hello-world-this-is-homesteading-have-you-heard-of-the-indieweb"
@@ -145,6 +145,22 @@ describe Note do
 
       it "is stripped of punctuation" do
         expect(subject.slug).to eq "emoji-rules-everything-around-me"
+      end
+    end
+
+    context "when #content starts with a non-word character" do
+      subject { Fabricate(:note, content: "#rooftopthecat") }
+
+      it "is stripped of leading hyphen" do
+        expect(subject.slug).to eq "rooftopthecat"
+      end
+    end
+
+    context "when #content has backticks" do
+      subject { Fabricate(:note, content: "Thanks @jbarnette again for `rake doofus`! https://github.com/jbarnette/hoe-doofus") }
+
+      it "is lowercase and hyphens, like all the rest" do
+        expect(subject.slug).to eq "thanks-jbarnette-again-for-rake-doofus-https-github-com-jbarnette-hoe-doofus"
       end
     end
 

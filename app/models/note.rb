@@ -45,9 +45,10 @@ class Note < ActiveRecord::Base
       gsub(/\(|\)|\[|\]\./, blank).
       gsub(/&amp;/,         blank).
       gsub(/\W/,            separator).
-      gsub(/-/,             separator).
+      gsub(/_/,             separator).
       gsub(/ /,             separator).
       gsub(/--/,            separator).
-      gsub(/-+$/,            blank)
+      gsub(/^-+/,           blank).
+      gsub(/-+$/,           blank)
   end
 end
