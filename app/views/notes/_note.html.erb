@@ -4,8 +4,8 @@
     <article id="note_<%= note.id %>" class="h-entry hentry as-object as-note">
       <header>
         <% unless note.in_reply_to.blank? %>
-          <p class="meta">
-            <b>In Reply To:</b>
+          <p class="post-meta">
+            <b>In Reply To</b>
             <%= link_to in_reply_to_urls(note) %>
           </p>
         <% end %>
@@ -19,7 +19,7 @@
         <%= simple_format note.content %>
       </div>
 
-      <footer class="meta">
+      <footer class="post-meta">
         <p>
           <%= link_to "Published", note.path, rel: "bookmark", class: "u-url url as-verb as-verb-published" %>
 
@@ -34,13 +34,22 @@
           <%= small_word_tag "by" %>
 
           <span class="h-card vcard p-author author p-contributor">
-            <%= link_to setting(:author_url), rel: "me", class: "u-url url" do %>
-              <span class="p-name fn as-actor">
-                <%= setting :author_name %>
-              </span>
-            <% end %>
+            <%# all on one long line to avoid trailing whitespace inside of <a> tag %>
+            <%= link_to setting(:author_url), rel: "me", class: "u-url url" do %><span class="p-name fn as-actor"><%= setting :author_name %></span><% end %>
           </span>
+
+          <% unless note.source.blank? %>
+            <span>
+              using <%= note.source.html_safe %>
+            </span>
+          <% end %>
         </p>
+
+        <% unless note.twitter_url.blank? %>
+          <div class="syndication">
+            <%= link_to_syndication(note).html_safe %>
+          </div> <!-- .syndication -->
+        <% end %>
       </footer>
     </article>
 

@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20131006074600) do
     t.text     "location_longitude"
     t.text     "location_altitude"
     t.text     "slug"
+    t.text     "source"
+    t.text     "twitter_url"
     t.string   "year"
     t.string   "month"
     t.string   "day"

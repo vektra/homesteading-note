@@ -9,7 +9,9 @@ class CreateNotes < ActiveRecord::Migration
              :location_latitude,
              :location_longitude,
              :location_altitude,
-             :slug
+             :slug,
+             :source,
+             :twitter_url
 
       t.string :year,
                :month,
