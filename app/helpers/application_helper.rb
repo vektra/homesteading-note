@@ -11,20 +11,20 @@ module ApplicationHelper
     action_name == "show"
   end
 
-  def link_to_syndication(thing)
+  def link_to_syndication(post)
     html = content_tag(:p, "Also posted to")
 
     links = []
 
     external_silos.each do |external|
-      if thing.respond_to?(external_silo_url_key(external)) &&
-         thing.send(external_silo_url_key(external)) &&
-         !thing.send(external_silo_url_key(external)).blank?
+      if post.respond_to?(external_silo_url_key(external)) &&
+         post.send(external_silo_url_key(external)) &&
+         !post.send(external_silo_url_key(external)).blank?
 
          rel = "external "
          rel << "syndication" if show_action?
 
-        links << content_tag(:li, link_to(external, thing.send(external_silo_url_key(external)), rel: rel, class:  "u-syndication"))
+        links << content_tag(:li, link_to(external, post.send(external_silo_url_key(external)), rel: rel, class:  "u-syndication"))
       end
     end
 
