@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20131006074600) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "notes", force: true do |t|
     t.text     "content"
     t.text     "in_reply_to"

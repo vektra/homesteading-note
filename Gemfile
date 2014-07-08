@@ -10,6 +10,7 @@ gem "homesteading_helpers"
 gem "sprockets", "=2.11.0"
 
 gem "rails",     "~> 4.1.2"
+gem "pg"
 gem "sass-rails"
 gem "uglifier"
 gem "puma"
@@ -36,6 +37,5 @@ group :test do
 end
 
 group :production do
-  gem "pg"
   gem "rails_12factor"
 end
