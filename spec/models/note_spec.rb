@@ -83,7 +83,7 @@ describe Note do
         day   = note.published_at.day.to_s.rjust(  2, "0")
         slug  = note.slug
         expect(subject).to eq "/notes/#{year}/#{month}/#{day}/#{slug}"
-        
+
         puts "/notes/#{year}/#{month}/#{day}/#{slug}"
       end
     end
@@ -113,6 +113,41 @@ describe Note do
         expect(subject).to eq false
       end
     end
+  end
+
+  describe "#slug" do
+    context "when #content is mixed case letters and spaces" do
+      subject { Fabricate(:note, content: "The content body") }
+
+      it "is lowercase with hyphens" do
+        expect(subject.slug).to eq "the-content-body"
+      end
+    end
+
+    context "when #content is letters/numbers/spaces" do
+      subject { Fabricate(:note, content: "My number is 867-5309") }
+
+      it "is lowercase with hyphens" do
+        expect(subject.slug).to eq "my-number-is-867-5309"
+      end
+    end
+
+    context "when #content includes punctuation" do
+      subject { Fabricate(:note, content: "Hello, World. This is Homesteading! Have you heard of the #indieweb?") }
+
+      it "is stripped of punctuation" do
+        expect(subject.slug).to eq "hello-world-this-is-homesteading-have-you-heard-of-the-indieweb"
+      end
+    end
+
+    context "when #content includes unicode" do
+      subject { Fabricate(:note, content: "Emoji rules everything around me. “😎”") }
+
+      it "is stripped of punctuation" do
+        expect(subject.slug).to eq "emoji-rules-everything-around-me"
+      end
+    end
+
   end
 
   # describe "#name" do

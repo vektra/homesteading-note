@@ -41,11 +41,13 @@ class Note < ActiveRecord::Base
     blank       = ""
     separator   = "-"
     self.slug ||= "#{content}"
-    self.slug   = slug.downcase.gsub(/\(|\)|\[|\]/, "").
-      gsub(/\./,       separator).
-      gsub(/-$|,|!|'/, blank).
-      gsub(/&amp;/,    blank).
-      gsub(/-/,        separator).
-      gsub(/ /,        separator)
+    self.slug   = slug.downcase.
+      gsub(/\(|\)|\[|\]\./, blank).
+      gsub(/&amp;/,         blank).
+      gsub(/\W/,            separator).
+      gsub(/-/,             separator).
+      gsub(/ /,             separator).
+      gsub(/--/,            separator).
+      gsub(/-+$/,            blank)
   end
 end
