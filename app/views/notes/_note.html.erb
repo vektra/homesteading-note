@@ -3,8 +3,9 @@
 
     <article id="note_<%= note.id %>" class="h-entry hentry as-object as-note">
       <header>
-        <% unless note.in_reply_to.blank? %>
-          <p class="post-meta">
+
+        <% if is_a_reply?(note) %>
+          <p class="post-meta reply-context">
             <b>In Reply To</b>
             <%= link_to in_reply_to_urls(note) %>
           </p>
