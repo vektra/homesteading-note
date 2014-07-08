@@ -30,8 +30,8 @@ class Note < ActiveRecord::Base
   def set_published_at_attrs
     self.published_at ||= Time.zone.now
     self.year   = published_at.year
-    self.month  = published_at.month.to_s.rjust(2, '0')
-    self.day    = published_at.day.to_s.rjust(2, '0')
+    self.month  = published_at.month.to_s.rjust(2, "0")
+    self.day    = published_at.day.to_s.rjust(  2, "0")
     self.hour   = published_at.hour
     self.minute = published_at.min
     self.second = published_at.sec
