@@ -14,7 +14,7 @@
 
       <footer>
         <p>
-          <a href="<%= note.path %>" rel="bookmark" class="u-url url as-verb as-verb-published">Published</a>
+          <%= link_to "Published", note.path, rel: "bookmark", class: "u-url url as-verb as-verb-published" %>
 
           <%= time_tag note.published_at, class: "dt-published published" do %>
             <%= small_word_tag "on" %>
@@ -27,11 +27,11 @@
           <%= small_word_tag "by" %>
 
           <span class="h-card vcard p-author author p-contributor">
-            <a href="<%= setting :author_url %>" rel="me" class="u-url url">
+            <%= link_to setting(:author_url), rel: "me", class: "u-url url" do %>
               <span class="p-name fn as-actor">
                 <%= setting :author_name %>
               </span>
-            </a>
+            <% end %>
           </span>
         </p>
 
