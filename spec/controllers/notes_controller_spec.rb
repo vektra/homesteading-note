@@ -17,7 +17,7 @@ describe NotesController, type: :controller do
       before { get :index }
 
       it "assings @posts to be 5 most recent notes" do
-        expect(assigns(:notes).to_a).to eq(
+        expect(assigns(:posts).to_a).to eq(
           Note.unscoped.order("published_at DESC").limit(5))
       end
     end
@@ -27,7 +27,7 @@ describe NotesController, type: :controller do
       before { get :index, page: "2" }
 
       it "assings @posts to be 5 most recent notes after (page number * 5)" do
-        expect(assigns(:notes).to_a).to eq(
+        expect(assigns(:posts).to_a).to eq(
           [Note.unscoped.order("published_at DESC").last])
       end
     end
@@ -39,7 +39,7 @@ describe NotesController, type: :controller do
       day: note.month, slug: note.slug }
 
     it "assigns @post" do
-      expect(assigns(:note)).to eq note
+      expect(assigns(:post)).to eq note
     end
 
     it "assigns @page_title" do
@@ -55,7 +55,7 @@ describe NotesController, type: :controller do
     before { get :new }
 
     it "assigns @post" do
-      expect(assigns(:note)).to be_a Note
+      expect(assigns(:post)).to be_a Note
     end
 
     it "assigns @page_title" do
@@ -73,7 +73,7 @@ describe NotesController, type: :controller do
       day: note.month, slug: note.slug }
 
     it "assigns @post" do
-      expect(assigns(:note)).to eq note
+      expect(assigns(:post)).to eq note
     end
 
     it "assigns @page_title" do
@@ -115,7 +115,7 @@ describe NotesController, type: :controller do
     it "assigns @post" do
       patch :update, year: note.year, month: note.month,
       day: note.month, slug: note.slug, note: { title: "Update note title"}
-      expect(assigns(:note)).to eq note
+      expect(assigns(:post)).to eq note
     end
 
     context "when update is successful" do
