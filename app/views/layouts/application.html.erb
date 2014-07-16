@@ -37,7 +37,7 @@ All site content is copyright (c) <%= Time.now.year %>
 
   <!-- Backward compatibility: Atom -->
   <%= auto_discovery_link_tag(:atom,
-                              "http://#{setting :long_domain}/feed",
+                              "http://#{setting :long_domain}/#{setting(:post_type).pluralize}/feed",
                               title: "Atom feed of: #{setting(:site_title)}") %>
 
   <%= rel_canonical_link_tag(@post) %>
