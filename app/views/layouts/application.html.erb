@@ -41,7 +41,6 @@ All site content is copyright (c) <%= Time.now.year %>
                               title: "Atom feed of: #{setting(:site_title)}") %>
 
   <%= rel_canonical_link_tag(@post) %>
-  <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
   <!-- fav and touch icons -->
   <link rel="shortcut icon"                                href="/favicon.ico" />
@@ -50,6 +49,7 @@ All site content is copyright (c) <%= Time.now.year %>
   <link rel="apple-touch-icon-precomposed" sizes="72x72"   href="/apple-touch-icon-72-precomposed.png"  />
   <link rel="apple-touch-icon-precomposed"                 href="/apple-touch-icon-57-precomposed.png"  />
 
+  <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <%= stylesheet_link_tag "application", media: "all"      %>
   <%= javascript_include_tag(write_action? ? "write" : "read") %>
   <%= csrf_meta_tags %>
