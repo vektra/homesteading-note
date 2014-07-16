@@ -46,6 +46,13 @@
           <% end %>
         </p>
 
+        <% unless index_action? %>
+          <p class="short-url">
+            <b>URL</b>
+            <%= link_to short_url(note).gsub(/https?:\/\//, ""), short_url(note), rel: "shortlink", class: "u-shortlink" %>
+          </p>
+        <% end %>
+
         <% unless note.twitter_url.blank? %>
           <div class="syndication">
             <%= link_to_syndication(note).html_safe %>
