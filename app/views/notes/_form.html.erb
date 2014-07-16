@@ -1,15 +1,15 @@
-<%= form_for @note, url: @note.path, html: { class: "h-entry" } do |f| %>
+<%= form_for @post, url: @post.path, html: { class: "h-entry" } do |f| %>
   <% if editing? %>
-    <h4 class="alert alert-info">Editing <%= link_to @note.name, @note.path %></h4>
+    <h4 class="alert alert-info">Editing <%= link_to @post.name, @post.path %></h4>
   <% end %>
 
   <main>
-    <% if @note.errors.any? %>
+    <% if @post.errors.any? %>
       <div class="alert alert-danger">
-        <h4><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h4>
+        <h4><%= pluralize(@post.errors.count, "error") %> prohibited this note from being saved:</h4>
 
         <ul>
-          <% @note.errors.full_messages.each do |msg| %>
+          <% @post.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
           <% end %>
         </ul>
@@ -32,9 +32,9 @@
     </fieldset>
 
     <fieldset class="actions">
-      <%= link_to "Delete", @note.path, class: "action-delete", method: :delete, data: { confirm: "This post will be immediately deleted. There is NO UNDO. Are you sure you want to delete it?" } %>
+      <%= link_to "Delete", @post.path, class: "action-delete", method: :delete, data: { confirm: "This post will be immediately deleted. There is NO UNDO. Are you sure you want to delete it?" } %>
 
-      <%= link_to "Cancel", @note.path, class: "action",                         data: { confirm: "All changes made since you last published this post will be immediately lost. There is NO UNDO. Are you sure you want to discard your changes?" } %>
+      <%= link_to "Cancel", @post.path, class: "action",                         data: { confirm: "All changes made since you last published this post will be immediately lost. There is NO UNDO. Are you sure you want to discard your changes?" } %>
 
       <%= f.button "Publish", class: "action-save" %>
 

@@ -16,7 +16,7 @@ describe NotesController, type: :controller do
       before { 6.times { Fabricate(:note) } }
       before { get :index }
 
-      it "assings @notes to be 5 most recent notes" do
+      it "assings @posts to be 5 most recent notes" do
         expect(assigns(:notes).to_a).to eq(
           Note.unscoped.order("published_at DESC").limit(5))
       end
@@ -26,7 +26,7 @@ describe NotesController, type: :controller do
       before { 6.times { Fabricate(:note) } }
       before { get :index, page: "2" }
 
-      it "assings @notes to be 5 most recent notes after (page number * 5)" do
+      it "assings @posts to be 5 most recent notes after (page number * 5)" do
         expect(assigns(:notes).to_a).to eq(
           [Note.unscoped.order("published_at DESC").last])
       end
@@ -38,7 +38,7 @@ describe NotesController, type: :controller do
     before { get :show, year: note.year, month: note.month,
       day: note.month, slug: note.slug }
 
-    it "assigns @note" do
+    it "assigns @post" do
       expect(assigns(:note)).to eq note
     end
 
@@ -54,7 +54,7 @@ describe NotesController, type: :controller do
   describe "GET new" do
     before { get :new }
 
-    it "assigns @note" do
+    it "assigns @post" do
       expect(assigns(:note)).to be_a Note
     end
 
@@ -72,7 +72,7 @@ describe NotesController, type: :controller do
     before { get :edit, year: note.year, month: note.month,
       day: note.month, slug: note.slug }
 
-    it "assigns @note" do
+    it "assigns @post" do
       expect(assigns(:note)).to eq note
     end
 
@@ -112,7 +112,7 @@ describe NotesController, type: :controller do
   describe "PATCH update" do
     let!(:note) { Fabricate(:note) }
 
-    it "assigns @note" do
+    it "assigns @post" do
       patch :update, year: note.year, month: note.month,
       day: note.month, slug: note.slug, note: { title: "Update note title"}
       expect(assigns(:note)).to eq note

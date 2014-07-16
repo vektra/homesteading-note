@@ -3,28 +3,28 @@ class NotesController < ApplicationController
 
   def index
     @page_title = "Notes"
-    @notes      = Note.paginate(per_page: 5, page: params[:page])
+    @posts      = Note.paginate(per_page: 5, page: params[:page])
   end
 
   def show
-    @page_title = @note.name
+    @page_title = @post.name
   end
 
   # require auth
   def new
     @page_title = "New Note"
-    @note       = Note.new
+    @post       = Note.new
   end
 
   # require auth
   def edit
-    @page_title = "Editing Note - #{@note.name}"
+    @page_title = "Editing Note - #{@post.name}"
   end
 
   # require auth
   def create
-    @note = Note.new(note_params)
-    if @note.save
+    @post = Note.new(note_params)
+    if @post.save
       redirect_to notes_url, notice: "Note was successfully created."
     else
       render action: "new"
@@ -33,7 +33,7 @@ class NotesController < ApplicationController
 
   # require auth
   def update
-    if @note.update(note_params)
+    if @post.update(note_params)
       redirect_to notes_url, notice: "Note was successfully updated."
     else
       render action: "edit"
@@ -42,7 +42,7 @@ class NotesController < ApplicationController
 
   # require auth
   def destroy
-    @note.destroy
+    @post.destroy
     redirect_to notes_url
   end
 
@@ -55,14 +55,14 @@ class NotesController < ApplicationController
 
     # just one match, use it!
     if notes.length == 1
-      @note = notes.first
+      @post = notes.first
 
     # mulitple notes on that day with that slug, use the right nth one
     elsif notes.length > 1
-      @note = Note.where(year:  params[:year]  || @note.year
-                 ).where(month: params[:month] || @note.month
-                 ).where(day:   params[:day]   || @note.day
-                 ).where(slug:  params[:slug]  || @note.slug).load.first
+      @post = Note.where(year:  params[:year]  || @post.year
+                 ).where(month: params[:month] || @post.month
+                 ).where(day:   params[:day]   || @post.day
+                 ).where(slug:  params[:slug]  || @post.slug).load.first
 
     # no notes that match slug, go to /notes feed
     else notes.length.zero?
