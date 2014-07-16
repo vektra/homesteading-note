@@ -16,10 +16,6 @@ All site content is copyright (c) <%= Time.now.year %>
   <meta name="viewport" content="width=device-width" />
   <meta name="viewport" content="user-scalable=no"   />
 
-  <%= stylesheet_link_tag "application", media: "all"      %>
-  <%= javascript_include_tag(write_action? ? "write" : "read") %>
-  <%= csrf_meta_tags %>
-
   <!-- Backward compatibility: Facebook (Open Graph) -->
   <meta property="og:type"        content="blog" />
   <meta property="og:url"         content="<%= canonical_url %>" />
@@ -32,6 +28,11 @@ All site content is copyright (c) <%= Time.now.year %>
   <meta name="description" content="<%= page_description(@post) %>" />
 
   <%= rel_canonical_link_tag(@post) %>
+  <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <%= stylesheet_link_tag "application", media: "all"      %>
+  <%= javascript_include_tag(write_action? ? "write" : "read") %>
+  <%= csrf_meta_tags %>
 </head>
 
 <body>
