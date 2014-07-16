@@ -9,7 +9,7 @@ gem "homesteading_helpers"
 # Temporary fix
 gem "sprockets", "=2.11.0"
 
-gem "rails",     "~> 4.1.2"
+gem "rails",     "~> 4.1.4"
 gem "pg"
 gem "sass-rails"
 gem "uglifier"
@@ -17,6 +17,10 @@ gem "puma"
 gem "jquery-rails"
 gem "quiet_assets"
 gem "will_paginate"
+
+# for short urls
+gem "new_base_60"
+
 
 group :development do
   # for seeds.rb
