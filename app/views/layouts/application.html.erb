@@ -41,6 +41,7 @@ All site content is copyright (c) <%= Time.now.year %>
                               title: "Atom feed of: #{setting(:site_title)}") %>
 
   <%= rel_canonical_link_tag(@post) %>
+  <%= shorturl_link_tag(@post) %>
 
   <!-- fav and touch icons -->
   <link rel="shortcut icon"                                href="/favicon.ico" />
