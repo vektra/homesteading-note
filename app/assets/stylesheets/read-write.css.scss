@@ -236,6 +236,11 @@ aside .meta {
   margin: 1em 0;
 }
 
+footer[role="contentinfo"] {
+  text-align: center;
+  color: #999;
+}
+
 @media (min-width: 768pt) {
   .e-content     { font-size: 1.25em; }
   .p-hs-content-count,
