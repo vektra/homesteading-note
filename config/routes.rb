@@ -32,6 +32,9 @@ HomesteadingNote::Application.routes.draw do
       to:          "notes#destroy",
       constraints: { year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/ }
 
+  # atom feed
+  get "/notes/feed", to: "notes#index", defaults: { format: "atom" }, as: :feed
+
   # Pagination
   get "/notes/page/1",                    to: redirect("/")
   get "/notes/page",                      to: redirect("/")

@@ -1,9 +1,12 @@
 class NotesController < ApplicationController
-  before_action :set_note,     only: [:edit, :update, :show, :destroy]
+  before_action :set_note, only: [:edit, :update, :show, :destroy]
+  respond_to :html, :atom
 
   def index
     @page_title = "Notes"
     @posts      = Note.paginate(per_page: 5, page: params[:page])
+
+    respond_with @posts
   end
 
   def show
