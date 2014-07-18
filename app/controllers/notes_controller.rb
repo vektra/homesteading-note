@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
-  before_action :set_note, only: [:edit, :update, :show, :destroy]
-  respond_to :html, :atom
+  before_action :set_post, only: [:edit, :update, :show, :destroy]
+  respond_to    :html, :atom
 
   def index
     @page_title = "Notes"
@@ -26,7 +26,7 @@ class NotesController < ApplicationController
 
   # require auth
   def create
-    @post = Note.new(note_params)
+    @post = Note.new(post_params)
     if @post.save
       redirect_to notes_url, notice: "Note was successfully created."
     else
@@ -36,7 +36,7 @@ class NotesController < ApplicationController
 
   # require auth
   def update
-    if @post.update(note_params)
+    if @post.update(post_params)
       redirect_to notes_url, notice: "Note was successfully updated."
     else
       render action: "edit"
@@ -52,7 +52,7 @@ class NotesController < ApplicationController
 
   private
 
-  def set_note
+  def set_post
     # get all notes that match the slug from the URL:  yyyy/mm/dd/SLUG
     notes = Note.where(slug: params[:slug]).load
 
@@ -73,7 +73,7 @@ class NotesController < ApplicationController
     end
   end
 
-  def note_params
+  def post_params
     params.require(:note).permit(:content,
                                  :in_reply_to,
                                  :location_altitude,
