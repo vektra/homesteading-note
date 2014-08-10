@@ -2,16 +2,19 @@
 # the site owner will need to populate those with real values
 puts "Creating default settings..."
 [
-  ["Author Name",       "",     true ],
-  ["Author URL",        "",     true ],
-  ["Hub URL",           "/",    true ],
-  ["Site Title",        "",     true ],
-  ["Site Description",  "",     true ],
-  ["Long Domain",       "",     true ],
-  ["Short Domain",      "",     true ],
-  ["Twitter Username",  "",     true ],
-  ["Post Type",         "note", false],
-  ["Post Short Code",   "n",    false]
+  ["Author Name",                  "",                                   true ],
+  ["Author URL",                   "",                                   true ],
+  ["Hub URL",                      "/",                                  true ],
+  ["Site Title",                   "",                                   true ],
+  ["Site Description",             "",                                   true ],
+  ["Long Domain",                  "",                                   true ],
+  ["Short Domain",                 "",                                   true ],
+  ["Twitter Username",             "",                                   true ],
+  ["Post Type",                    "note",                               false],
+  ["Post Short Code",              "n",                                  false],
+  ["Rel Authorization Endpoint",   "https://indieauth.com/auth",         true ],
+  ["Rel Token Endpoint",           "https://tokens.indieauth.com/token", true ],
+  ["Rel Me",                       "",                                   true ]
 ].each do |setting|
   s          = Setting.new
   s.name     = setting[0]
