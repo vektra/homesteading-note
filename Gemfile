@@ -21,14 +21,6 @@ gem "will_paginate"
 # for short urls
 gem "new_base_60"
 
-
-group :development do
-  # for seeds.rb
-  gem "grailbird_updater"
-  gem "nokogiri"
-  gem "json"
-end
-
 group :test, :development do
   gem "sqlite3"
   gem "rspec-rails"
@@ -42,4 +34,12 @@ end
 
 group :production do
   gem "rails_12factor"
+end
+
+
+group :development do
+  # for seeds.rb
+  gem "grailbird_updater"
+  gem "nokogiri"
+  gem "json"
 end
