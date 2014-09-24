@@ -15,6 +15,14 @@ is an app used for publishing note updates. It connects to a
 to feed updates downstream to subscriber apps.
 
 
+## Deploy to Heroku
+
+Click this button to easily deploy to Heroku. You must already have a Heroku account.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/homesteading/homesteading-note)
+
+
+
 ## Setup
 
 1. Install all the required gems.
