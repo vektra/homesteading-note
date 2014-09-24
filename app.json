@@ -1,0 +1,33 @@
+{
+  "name": "Homesteading Note",
+  "description": "An app used for publishing notes to your own website.",
+  "keywords": [
+    "indieweb",
+    "homesteading",
+    "publishing",
+    "ownyourdata",
+    "POSSE"
+  ],
+  "website": "http://homesteading.io",
+  "repository": "",
+  "logo": "http://homesteading.io/logo.png",
+  
+  "success_url": "/settings",
+  "scripts": {
+    "postdeploy": [
+      "bundle exec rake db:migrate;",
+      "bundle exec rake db:seed"
+    ]
+  },
+  "env": {
+    "RAILS_ENV": "production",
+    "COOKIE_SECRET": {
+      "description": "This gets generated",
+      "generator":   "secret"
+    }
+  },
+  "addons": [
+    "heroku-postgresql:hobby-dev",
+    "papertrail"
+  ]
+}
