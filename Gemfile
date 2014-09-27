@@ -9,7 +9,7 @@ gem "homesteading_helpers"
 # Temporary fix
 gem "sprockets", "=2.11.0"
 
-gem "rails",     "~> 4.1.4"
+gem "rails",     "~> 4.1.6"
 gem "pg"
 gem "sass-rails"
 gem "uglifier"
