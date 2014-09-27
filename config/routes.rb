@@ -1,4 +1,4 @@
-HomesteadingNote::Application.routes.draw do
+Rails.application.routes.draw do
   root      to: "notes#index"
   resources :settings, only: [:index, :edit, :show, :update]
 

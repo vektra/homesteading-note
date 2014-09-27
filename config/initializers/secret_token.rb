@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-HomesteadingNote::Application.config.secret_key_base = 'bb41f771a43770c6dc6f77e87f79782bdcb0e7d3d4668ca4fb3f45ac4d431be68e38a3794d8031021c70db7eebf868a015ff8ef96b1da03d887aaa470c46dc89'
+Rails.application.config.secret_key_base = 'bb41f771a43770c6dc6f77e87f79782bdcb0e7d3d4668ca4fb3f45ac4d431be68e38a3794d8031021c70db7eebf868a015ff8ef96b1da03d887aaa470c46dc89'
