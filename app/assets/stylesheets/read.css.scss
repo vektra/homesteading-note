@@ -31,40 +31,13 @@
 
   p { margin-bottom: 1em; }
 
-  .post-meta {
-    font-size: 16px;
-    line-height: 1.25em;
-    margin: 1em 0 0 0;
-    opacity: .5;
+  footer {
+    margin: 2em 0 0 0;
+    opacity: .75;
     color: #999;
 
     a { color: #999; }
 
     p { margin: 0; }
-
-    .syndication {
-      font-weight: normal;
-      display: inline;
-
-      p,
-      ul,
-      li {
-        display: inline;
-        margin: 0;
-        padding: 0;
-      }
-
-      li {
-        margin-left: .25em;
-      }
-    }
-  }
-}
-
-/* "tablet" */
-@media (min-width: 768px) {
-  .h-entry footer .syndication {
-    display: block;
-    margin: 0;
   }
 }
