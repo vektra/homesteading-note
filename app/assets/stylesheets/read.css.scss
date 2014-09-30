@@ -5,6 +5,11 @@
 }
 
 .h-entry {
+  .p-name .p-hs-title,
+  .p-name .p-hs-subtitle {
+    display: block;
+  }
+
   header  .post-meta {
     margin-bottom: 1em;
   }
