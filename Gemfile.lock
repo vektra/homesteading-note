@@ -44,7 +44,7 @@ GEM
       trollop
     hike (1.2.3)
     homesteading-tasks (0.0.11)
-    homesteading_assets (0.0.3)
+    homesteading_assets (0.0.4)
       rails (~> 4.1.6)
     homesteading_helpers (0.0.11)
       rails (~> 4.1.1)
