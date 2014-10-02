@@ -5,21 +5,4 @@ class ApplicationController < ActionController::Base
 
   # Shared helpers across all Homesteading publisher apps
   helper HomesteadingHelpers::Engine.helpers
-
-
-  before_action :require_auth, only: [:new,  :edit, :create, :update, :destroy]
-
-  # temp hack to hide C_UD routes
-  def logged_in?
-    false
-  end
-
-  # temp hack until we implement auth
-  def require_auth
-    if Rails.env.production?
-      unless logged_in?
-        return redirect_to(root_path)
-      end
-    end
-  end
 end

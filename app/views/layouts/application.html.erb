@@ -63,12 +63,10 @@ All site content is copyright (c) <%= Time.now.year %>
         <li><%= link_to post_type.capitalize.pluralize, root_url %></li>
       </ul>
 
-      <% if logged_in? %>
-        <ul class="admin">
-          <li>   <%= link_to_unless_current "Settings",                settings_url                 %>    </li>
-          <li><b><%= link_to_unless_current "NEW&nbsp;POST".html_safe, send("new_#{post_type}_url") %></b></li>
-        </ul>
-      <% end %>
+      <ul class="admin">
+        <li>   <%= link_to_unless_current "Settings",                settings_url                 %>    </li>
+        <li><b><%= link_to_unless_current "NEW&nbsp;POST".html_safe, send("new_#{post_type}_url") %></b></li>
+      </ul>
     </nav>
   </header>
 
