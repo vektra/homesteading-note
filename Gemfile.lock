@@ -44,7 +44,9 @@ GEM
       trollop
     hike (1.2.3)
     homesteading-tasks (0.0.11)
-    homesteading_helpers (0.0.6)
+    homesteading_assets (0.0.3)
+      rails (~> 4.1.6)
+    homesteading_helpers (0.0.11)
       rails (~> 4.1.1)
     i18n (0.6.11)
     jquery-rails (3.1.2)
@@ -90,7 +92,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.3.2)
-    rspec-core (3.1.4)
+    rspec-core (3.1.5)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.2)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -147,6 +149,7 @@ DEPENDENCIES
   fabrication
   grailbird_updater
   homesteading-tasks
+  homesteading_assets
   homesteading_helpers
   jquery-rails
   json

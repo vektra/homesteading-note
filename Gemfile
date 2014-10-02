@@ -5,6 +5,7 @@ ruby "2.1.2"
 # homesteading shared stuff
 gem "homesteading-tasks"
 gem "homesteading_helpers"
+gem "homesteading_assets"
 
 # Temporary fix
 gem "sprockets", "=2.11.0"
